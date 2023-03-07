@@ -1,0 +1,536 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPAr.master.cs" Inherits="ar_MPAr" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../ImgSystem/ImgSetting/StartLogo.png" type="image/vnd.microsoft.icon" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <%--<meta name="viewport" content="width=device-width, initial-scale=1" />--%>
+    <%--<meta name="description" />
+    <meta name="author" />--%>
+    <title>الصفحة الرئيسية لجمعية البر والخدمات الإجتماعية بأرن 
+    </title>
+    <link href="../Themes/Content/video-js.css" rel="stylesheet" />
+    <script src="../Themes/Scripts/videojs-ie8.min.js"></script>
+    <style type="text/css">
+        #home_tabs .carousel-inner .video-js {
+            width: 30%;
+            height: 270px;
+            float: right;
+        }
+
+        .video-js .vjs-big-play-button {
+            top: 42%;
+            left: 35%;
+        }
+
+        .twitterContainer .scrollContent.mCustomScrollbar {
+            height: 190px !important;
+        }
+
+        .owl-carousel .owl-item img {
+            width: 150px;
+        }
+
+        #social_media {
+            background: #efeeee;
+        }
+
+        #home_tabs {
+            background: #ffffff !important;
+        }
+
+        .scrollContent.mCustomScrollbar {
+            height: 400px !important;
+        }
+    </style>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../Themes/Content/bootstrap.css" rel="stylesheet" />
+    <link href="../Themes/Content/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="../Themes/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="../Themes/Content/jquery.smartmenus.bootstrap.css" rel="stylesheet" />
+    <link href="../Themes/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="../Themes/Content/animate.css" rel="stylesheet" />
+    <link href="../Themes/Content/ie10-viewport-bug-workaround.css" rel="stylesheet" />
+    <link href="../Themes/Content/jquery.mCustomScrollbar.css" rel="stylesheet" />
+    <link href="../Themes/Content/Alber.css" rel="stylesheet" />
+    <script src="../Themes/Scripts/jquery.min.js"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="/themes/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../Themes/Scripts/ie-emulation-modes-warning.js"></script>
+    <link href="../Themes/Content/modern-ticker.css" rel="stylesheet" />
+    <link href="../Themes/Content/theme.css" rel="stylesheet" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtSearch").keyup(function (event) {
+                if (event.keyCode == 13) {
+                    $("#btnSearch").click();
+                }
+            });
+            $("#btnSearch").click(function () {
+                //window.location = "/Pages/SearchResult.aspx?k=" + $("#txtSearch").val();
+                window.location = "#";
+            });
+        });
+    </script>
+    <link href="../Themes/Content/owl.carousel.min.css" rel="stylesheet" />
+    <link href="../Themes/Content/owl.theme.default.min.css" rel="stylesheet" />
+    <script src="../Themes/Scripts/owl.carousel.js"></script>
+    <script src="../Themes/Scripts/jquery.mousewheel.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var owl = $('.owl-serv');
+            owl.owlCarousel({
+                loop: true,
+                nav: false,
+                rtl: true,
+                dots: false,
+                margin: 0,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    600: {
+                        items: 6
+                    },
+                    960: {
+                        items: 8
+                    },
+                    1200: {
+                        items: 8
+                    }
+                }
+            });
+            owl.on('mousewheel', '.owl-stage', function (e) {
+                if (e.deltaY > 0) {
+                    owl.trigger('next.owl');
+                } else {
+                    owl.trigger('prev.owl');
+                }
+                e.preventDefault();
+            });
+            $('.owl-branches').owlCarousel({
+                loop: true,
+                nav: false,
+                rtl: true,
+                dots: false,
+                margin: 10,
+                autoplay: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    480: {
+                        items: 2
+                    },
+                    600: {
+                        items: 2
+                    },
+                    960: {
+                        items: 8
+                    },
+                    1200: {
+                        items: 10
+                    }
+                }
+            });
+        })
+    </script>
+    <meta property="og:url" content="#" />
+    <meta property="og:type" content="article" />
+    <%--<meta property="og:image" content="http://alberlive.net/Images/Events/11-2015/11_2015_1.jpg" />--%>
+    <link href="../fonts/font-awesome.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        @media screen and (min-width: 768px) {
+            .WidthTextSearch {
+                width: 180px;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .WidthTextSearch {
+                Width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="aspNetHidden">
+        </div>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var theForm = document.forms['Form1'];
+            if (!theForm) {
+                theForm = document.Form1;
+            }
+            function __doPostBack(eventTarget, eventArgument) {
+                if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                    theForm.__EVENTTARGET.value = eventTarget;
+                    theForm.__EVENTARGUMENT.value = eventArgument;
+                    theForm.submit();
+                }
+            }
+        //]]>
+        </script>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            function WebForm_OnSubmit() {
+                if (typeof (ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+                return true;
+            }
+        //]]>
+        </script>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'Form1', ['tctl00$MainContent$ctl01', 'MainContent_ctl01', 'tctl00$ctl24', 'ctl24'], [], [], 90, 'ctl00');
+            //]]>
+        </script>
+
+        <!-- Begin Header -->
+        <header>
+            <div class="topHeader">
+                <div class="container">
+                    
+                    <div class="col-md-6">
+                        <div class="navbar-header">
+                            <button type="button" style="background-color: #ad9304" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <a href="../" class="logo" style="padding-top: 5px">
+                            <img src="../Themes/Images/newLogo.png" style="width: 100%" />
+                        </a>
+                        <a href="../Cpanel/" class="btn btn_green" style="border-radius: 12px; font-size: 12px; margin-bottom: 2px"><i class='fa fa-lock'></i> البوابة الإلكترونية التفاعلية الشاملة</a>
+                    </div>
+                    <div class="col-md-6">
+                        <br />
+                        <div class="login_container">
+                            <div class="col-md-6">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td>
+                                            <a href="javascript:;" class="btn btn_green" style="border-radius: 12px">لا يوجد فروع أو مكاتب للجمعية</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-top: 5px">
+                                            <a href="javascript:;" class="btn btn_green" style="border-radius: 12px">لا يوجد توظيف لعام 2020/2021</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td style="padding-top: 5px">
+                                            <a href="PageContact-Us.aspx?Type=Inquiry" class="btn btn_green" style="border-radius: 12px; font-size: 12px; width: 110px; margin-bottom: 2px"><i class='fa fa-envelope'></i> إستفسار</a>
+                                            <a href="PageContact-Us.aspx?Type=complaint" class="btn btn_green" style="border-radius: 12px; font-size: 12px; width: 110px; margin-bottom: 2px"><i class='fa fa-compass'></i> تقديم شكوى</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-top: 5px">
+                                            <a href="PageContact-Us.aspx?Type=suggestion" class="btn btn_green" style="border-radius: 12px; font-size: 12px; width: 110px; margin-bottom: 2px"><i class='fa fa-envelope-o'></i> تقديم إقتراح</a>
+                                            <a href="PageBeneficiaryRegistration.aspx" class="btn btn_green" style="border-radius: 12px; font-size: 12px; width: 110px; margin-bottom: 2px"><i class="fa fa-plus"></i> مستفيد جديد</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="searchContainer">
+                                    <div class="col-md-8">
+                                        <div class="navbar-form">
+                                            <input id="txtSearch" type="text" class="txtS btn_green WidthTextSearch" placeholder="كلمة البحث" />
+                                            <button id="btnSearch" class="btn SBut" type="button"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4" style="padding-top: 5px">
+                                        <a href="PageQuestionnaire.aspx" class="btn btn_green" style="border-radius: 12px; font-size: 12px; margin-bottom: 2px"><i class='fa fa-user'></i> إستطلاع الرأي</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="social-bar hidden">
+                                <a target="_blank" href="">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                                <a target="_blank" href="">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a target="_blank" href="">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a target="_blank" href="">
+                                    <i class="fa fa-skype"></i>
+                                </a>
+                                <a target="_blank" href="">
+                                    <i class="fa fa-youtube-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menuContainer">
+                <div class="container">
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false">
+                            <ul class="nav navbar-nav">
+                                <li><a href="../"><span class="fa fa-home" style="font-size: 20px"></span></a></li>
+                                <%
+                                    try
+                                    {
+                                        Response.Write(FManagementsGetViewF());
+                                    }
+                                    catch (Exception)
+                                    {
+
+                                    }
+                                %>
+                                <li><a href="https://salla.sa/berarn.com.sa/%D8%A7%D9%84%D8%AA%D8%A8%D8%B1%D8%B9%D8%A7%D8%AA/c1954035743">للدعم والتبرع </a></li>
+                                <li><a href="">الخدمات الالكترونية </a>
+                                    <ul class='sub1 dropdown-menu'>
+                                        <li>
+                                            <a href="PageSoon.aspx">الخدمات الإلكترونية للداعمين والمتبرعين</a>
+                                        </li>
+                                        <li>
+                                            <a href="../CPBeneficiary/">الخدمات الإلكترونية للمستفيدين</a>
+                                        </li>
+                                        <li>
+                                            <a href="PageSoon.aspx">الخدمات الإلكترونية لغير للمستفيدين</a>
+                                        </li>
+                                        <li>
+                                            <a href="PageSoon.aspx">الخدمات الإلكترونية لمجلس الإدارة</a>
+                                        </li>
+                                        <li>
+                                            <a href="PageSoon.aspx">الخدمات الإلكترونية لأعضاء الجمعية العمومية</a>
+                                        </li>
+                                        <li>
+                                            <a href="../CResearchers/">الخدمات الإلكترونية للموظفين</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="">المركز الإعلامي </a>
+                                    <ul class='sub1 dropdown-menu'>
+                                        <li>
+                                            <a href="PageVideo.aspx">الفيديوهات</a>
+                                        </li>
+                                        <li>
+                                            <a href="PageAlbum.aspx">البوم الصور</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <%--<li><a href="">إتصل بنا </a>
+                                    <ul class='sub1 dropdown-menu'>
+                                        <li>
+                                            <a href="PageMethodsOfCommunication.aspx">الموقع وطرق الإتصال</a>
+                                        </li>
+                                        <li>
+                                            <a href="PageContact-Us.aspx">إترك لنا رسالة</a>
+                                        </li>
+                                    </ul>
+                                </li>--%>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </nav>
+                </div>
+            </div>
+            <!-- Fixed navbar -->
+            <div class="ticker1 modern-ticker" id="IDPar" runat="server">
+                <div class="mt-body">
+                    <div class="mt-news">
+                        <ul>
+                            <asp:Repeater ID="RPTPar" runat="server">
+                                <ItemTemplate>
+                                    <li>
+                                        <a href='PageViewDetails.aspx?ID=<%# Eval("IDUniqArticle") %>' target="_self"><%# Eval("TitleArticle") %></a>
+                                    </li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                    </div>
+                    <div class="mt-controls">
+                        <div class="mt-prev"></div>
+                        <div class="mt-play"></div>
+                        <div class="mt-next"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- Begin Footer -->
+        <footer>
+            <div class="container">
+                <div class="text-center col-xs-12">
+                    <div class="row">
+                        <ul class="fast_links">
+                            <li><a href="../">الرئيسية</a></li>
+                            <%--<li><a href="/Pages/Branches.aspx">فروع الجمعية</a></li>--%>
+                            <%--<li><a href="/Pages/Objectives.aspx">الأهداف</a></li>--%>
+                            <%--<li><a href="#">اسئله شائعة</a></li>--%>
+                            <%--<li><a href="/Pages/BranchesAccount.aspx">حسابات بنكية</a></li>--%>
+                            <li><a href="PageContact-Us.aspx">اتصل بنا</a></li>
+                            <li><a href="PageVision.aspx">عن الجمعية</a></li>
+                            <li><a href="PageMethodsOfCommunication.aspx">موقع الجمعية</a></li>
+                        </ul>
+                        <div class="col-xs-12">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-8 col-sm-5">
+                                            <div class="contacts_cont ">
+                                                <div class="contact_item col-md-6 col-sm-12">
+                                                    <h5>المقر الرئيسي</h5>
+                                                    <p>
+                                                        <a runat="server" id="IDLocation" title="الموقع على الخريطه" data-toggle="tooltip" target="_blank">المدينة المنور , مهد الذهب , الصلحانية
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                                <div class="contact_item   col-md-3 col-sm-6">
+                                                    <h5>اتصل بنا</h5>
+                                                    <p>
+                                                        <a id="IDPhone" runat="server">
+                                                            <asp:Label ID="lblPhone" runat="server"></asp:Label>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                                <div class="contact_item   col-md-3 col-sm-6">
+                                                    <h5>البريد الالكتروني</h5>
+                                                    <p>
+                                                        <a id="IDEmail" runat="server">
+                                                            <asp:Label ID="lblEmail" runat="server"></asp:Label>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <a href="#" class="footerlogo hidden">
+                                                <img src="Themes/images/newLogo.png" /></a>
+                                        </div>
+                                        <div class="col-md-4 col-sm-7">
+                                            <div class="footerNewsletter_social">
+                                                <%--<div class="newsletter">
+                                          <div id="ctl24">
+                                              <h4>النشرة البريدية</h4>
+                                              <div class="newsletter_body">
+                                                  <input name="ctl00$txtEmail" type="text" id="txtEmail" class="newsletter_txt" />
+                                                  <span id="ctl26" style="color: Red; visibility: hidden;">*</span>
+                                                  <a id="btn_Subscribe" class=" btn newsletter_btn" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$btn_Subscribe&quot;, &quot;&quot;, true, &quot;newsletter&quot;, &quot;&quot;, false, true))"><i class="fa fa-paper-plane"></i></a>
+                                              </div>
+                                              <span id="ctl27" class="validation_class" style="visibility: hidden;">البريد الاليكتروني غير صحيح</span>
+                                          </div>
+                                      </div>--%>
+                                                <div class="social-bar ">
+                                                    <br />
+                                                    <br />
+                                                    <a runat="server" id="IDFacebook2" title="فيسبوك" data-toggle="tooltip" target="_blank">
+                                                        <i class="fa fa-facebook"></i>
+                                                    </a>
+                                                    <a runat="server" id="IDtwitter2" title="تويتر" data-toggle="tooltip" target="_blank">
+                                                        <i class="fa fa-twitter"></i>
+                                                    </a>
+                                                    <a runat="server" id="IDyoutube2" title="يوتيوب" data-toggle="tooltip" target="_blank">
+                                                        <i class="fa fa-youtube-square"></i>
+                                                    </a>
+                                                    <a runat="server" id="IDGoogleplus2" title="جوجل بلس" data-toggle="tooltip" target="_blank">
+                                                        <i class="fa fa-google-plus"></i>
+                                                    </a>
+                                                    <a href="#" target="_blank">
+                                                        <i class="fa fa-rss"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" copyrights">
+                    <p>
+                        <asp:Label ID="lblYear" runat="server"></asp:Label>
+                        © كافة الحقوق محفوظة ل
+                            <asp:Label ID="lblNameOrg" runat="server"></asp:Label>
+                    </p>
+                    <span id="lblOnlineUsers"></span>
+                    <div class="visitorContainers">
+                        <span>عدد الزيارات</span>
+                        <asp:Label ID="lblCountVisit" runat="server" Text="2123" CssClass="CountNumber" Style="color: #fff"></asp:Label>
+                        <i class="fa fa-minus"></i>
+                        <a class="CountNumber" href="http://ITFY-Edu.net" target="_blank" title="الذهاب للشركة">التقنية لأجلك</a>
+                    </div>
+                    <div class=" copyrights">
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="SocialBox">
+            <a runat="server" id="IDFacebook" title="فيسبوك" data-toggle="tooltip" target="_blank" class="LBoxIcon FaceBookIcon fa fa-facebook "></a>
+            <a runat="server" id="IDtwitter" title="تويتر" data-toggle="tooltip" target="_blank" class="LBoxIcon TwitterIcon fa fa-twitter"></a>
+            <a runat="server" id="IDyoutube" title="يوتيوب" data-toggle="tooltip" target="_blank" class="LBoxIcon YoutubeIcon fa fa-youtube"></a>
+            <a runat="server" id="IDGoogleplus" title="جوجل بلس" data-toggle="tooltip" target="_blank" class="LBoxIcon InstagramIcon fa fa-google-plus"></a>
+            <a href="#" target="_blank" class="LBoxIcon RssIcon fa fa-rss"></a>
+        </div>
+    </form>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../Themes/Scripts/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../Themes/Scripts/ie10-viewport-bug-workaround.js"></script>
+    <script src="../Themes/Scripts/jquery-ui.js"></script>
+    <script src="../Themes/Scripts/jquery.smartmenus.bootstrap.js"></script>
+    <script src="../Themes/Scripts/jquery.smartmenus.js"></script>
+    <script src="../Themes/Scripts/responsive-tabs.js"></script>
+    <script src="../Themes/Scripts/jquery.mCustomScrollbar.js"></script>
+    <script src="../Themes/Scripts/Alber.js"></script>
+    <script src="../Themes/Scripts/jquery.modern-ticker.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".ticker1").modernTicker({
+                effect: "scroll", scrollType: "continuous", scrollStart: "inside", scrollInterval: 20, transitionTime: 500, autoplay: true
+            });
+            $(".scrollContent").mCustomScrollbar({
+                theme: "light"
+            });
+        })
+    </script>
+    <script>
+
+        $('#home_responsive_tabs a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+        (function ($) {
+
+            fakewaffle.responsiveTabs(['xs', 'sm']);
+        })(jQuery);
+
+        $('#home_gallery').carousel({
+            interval: 4000
+        });
+
+        $('.carousel').carousel();
+
+    </script>
+</body>
+</html>

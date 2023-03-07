@@ -1,0 +1,207 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPCPanel.master.cs" Inherits="Cpanel_ERP_EOS_MPCPanel" %>
+<%@ Register Src="~/Cpanel/CAttach/WUCLoding.ascx" TagPrefix="uc1" TagName="WUCLoding" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>لوحة التحكم</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="/ImgSystem/ImgSetting/StartLogo.png" type="image/vnd.microsoft.icon" />
+
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/jquery-2.1.1.min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/bootstrap/js/bootstrap.min.js")%>"></script>
+    <link href="<%=ResolveUrl("~/view/javascript/font-awesome/css/font-awesome.min.css")%>" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/view/javascript/summernote/summernote.css")%>" rel="stylesheet" />
+    
+    <script src="<%=ResolveUrl("~/view/javascript/summernote/summernote.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/summernote/lang/summernote-ar-AR.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/moment.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js")%>"></script>
+
+    <link href="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css")%>" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/view/stylesheet/bootstrap-a.css")%>" rel="stylesheet" media="screen" />
+    <link href="<%=ResolveUrl("~/view/stylesheet/stylesheet-a.css?v=2.2")%>" rel="stylesheet" media="screen" />
+
+    <script src="<%=ResolveUrl("~/view/javascript/common.js")%>"></script>
+
+    <link href="<%=ResolveUrl("~/fonts/font-awesome.css")%>" rel="stylesheet" type="text/css" />
+    <link href="~/Cpanel/GridView.css?v=2.2" rel="stylesheet" type="text/css" />
+    <link href="/Themes/Ar_Qader/Content/ColorArn.css" rel="stylesheet" />
+    <style type="text/css">
+        body, h1, h2, h3, h4, h5, h6, p, ul, a, input, title {
+            font-family: 'Droid Arabic Kufi', serif;
+        }
+
+        @media screen and (min-width: 768px) {
+            .FoDesktop {
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .FoDesktop {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="container">
+            <header id="header" class="navbar navbar-static-top ColorHome">
+                <div class="navbar-header">
+                    <a type="button" id="button-menu" class="pull-left"><i class="fa fa-indent fa-lg"></i></a>
+                    <a href="<%=ResolveUrl("~/Cpanel/ERP/EOS/") %>" class="navbar-brand FoDesktop">نظام أوامر الصرف
+                        <%--<img src="../view/image/logo.png" id="ImgHome" runat="server" alt="لوحة التحكم" title="لوحة التحكم" width="123" height="23" />--%>
+                    </a>
+
+                </div>
+                <ul class="nav pull-right">
+                    <li><a href="##" class="FoDesktop" onclick="history.go(-1); return false;"><span class="hidden-xs hidden-sm hidden-md">رجوع</span> <i class="fa fa-share fa-lg"></i></a></li>
+                    <li runat="server" id="IDHRM" visible="false" class="BackgroundAll">
+                        <a href="/Cpanel/ERP/HRAndPayRoll/Admin/">
+                            <span class="label label-danger pull-left">
+                                <asp:Label ID="lblNotifications" runat="server" Text="0"></asp:Label></span>
+                            <span class="hidden-xs hidden-sm hidden-md" style="color:#F0F0F0;">نظام الموظف <i class="fa fa-connectdevelop fa-lg"></i></span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="hidden-xs hidden-sm hidden-md">حسابي</span> <i class="fa fa-user fa-lg"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-header"><i class="fa fa-file fa-lg"></i> بياناتي </li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/CHome/PageMyAccount.aspx")%>">تعديل بياناتي</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header"><i class="fa fa-lock fa-lg"></i> كلمة المرور </li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/CHome/PageMyPassword.aspx")%>">تعديل كلمة المرور</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<%=ResolveUrl("~/Cpanel/ERP/LogOut.aspx")%>"><span class="hidden-xs hidden-sm hidden-md">خروج</span> <i class="fa fa-sign-out fa-lg"></i></a></li>
+                </ul>
+            </header>
+            <nav id="column-left">
+                <div id="profile">
+                    <div>
+                        <a href="<%=ResolveUrl("~/Cpanel/ERP/EOS/") %>" title="الرئيسية">
+                            <img src="<%=ResolveUrl("~/Img/Logo.png")%>" width="65" /></a>
+                        <%--<i class="fa fa-opencart"></i>--%>
+                    </div>
+                    <div>
+                        <h4><asp:Label ID="lblFirstName" runat="server" Font-Size="12px"></asp:Label></h4>
+                        <small>
+                            <asp:Label ID="lblLestName" runat="server" Text="مرحباً بك"></asp:Label>
+                        </small>
+                    </div>
+                </div>
+                <ul id="menu">
+                    <li id="menu-dashboard">
+                        <a href="<%=ResolveUrl("~/Cpanel/ERP/EOS/")%>"><i class="fa fa-home fw"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li id="menu-customer-Eye-support">
+                        <a class="parent" id="pnlEyesupport" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span> دعم عيني</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDManageProductMatterOfExchangeAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/In_Kind_Donation/PageMatterOfExchange.aspx")%>'>أمر صرف عيني - فردي</a></li>
+                            <li runat="server" id="IDManageProductMatterOfExchangeGroupAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/In_Kind_Donation/PageMatterOfExchangeGroup.aspx")%>'>أمر صرف عيني - مجموعة</a></li>
+                            <li runat="server" id="IDManageProductMatterOfExchangeForDeviceAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/In_Kind_Donation/PageMatterOfExchangeForDevice.aspx")%>'>أمر صرف أدوية وأجهزة</a></li>
+                            <li runat="server" id="IDAnOrderToTxchangeHomeFurnishingAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/In_Kind_Donation/PageMatterOfExchangeHomeFurnishing.aspx")%>'>أمر صرف تأثيث منزل</a></li>                           
+                        </ul>
+                    </li>
+                    <li runat="server" id="IDManageProductMatterOfExchangeForDamagedAdd" visible="false"><a href="PageManageProductMatterOfExchangeForDamaged.aspx"><i class="fa fa-file fw"></i><span>إنشاء أمر صرف تالف</span></a></li>
+                    <li id="menu-customer-Cash-Support">
+                        <a class="parent" id="pnlSupportForPrisms" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>دعم نقدي</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDManageProductRestorationAndConstructionAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/Cash_Donation/PageRestorationAndConstruction.aspx")%>'>أمر بناء وترميم منازل</a></li>
+                            <li runat="server" id="IDSupportForPrisms" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/Cash_Donation/PageSupportForPrisms.aspx")%>'>أمر صرف مبلغ نقدي لمستفيد</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-MatterOfExchange">
+                        <a class="parent" id="pnlProductMatterOfExchange" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>موافقة الصرف</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDManageProductApprovalOfTheDirectorAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageAllow/PageApprovalOfTheDirector.aspx")%>'>موافقة مدير الجمعية</a></li>
+                            <li runat="server" id="IDManageProductCashierAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageAllow/PageCashier.aspx")%>'>موافقة المشرف المالي</a></li>
+                            <li runat="server" id="IDManageProductViceBoardAdd" visible="false"><a href="PageManageProductViceBoard.aspx">موافقة نائب رئيس المجلس</a></li>
+                            <li runat="server" id="IDManageProductChairmanOfTheBoardAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageAllow/PageChairmanOfTheBoard.aspx")%>'>موافقة رئيس المجلس</a></li>
+                            <li runat="server" id="IDManageProductStorekeeperAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageAllow/PageStorekeeper.aspx")%>'>مصادقة أمين المستودع</a></li>
+                        </ul>
+                    </li>
+                    <li runat="server" id="IDManageProductFileSearchersAdd"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageAllow/PageFileSearchers.aspx")%>'><i class="fa fa-file fw"></i><span>ملف مراجعة الباحثين</span></a></li>
+                    <%--<li runat="server" id="IDManageProductExchangeOrdersView"><a href="PageManageProductExchangeOrdersDetails.aspx"><i class="fa fa-list fw"></i><span>فرز أوامر الصرف</span></a></li>--%>
+                    <li runat="server" id="IDManageProductExchangeOrdersView"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/In_Kind_Donation/PageSortExchangeOrders.aspx")%>'><i class="fa fa-list fw"></i><span>فرز أوامر الصرف</span></a></li>
+                    <li runat="server" id="IDManageProductSupportByBeneficiaryViewMulti"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/In_Kind_Donation/PageSupportByBeneficiaryMulti.aspx")%>'><i class="fa fa-list fw"></i><span>الفواتير حسب المشروع</span></a></li>
+                    <li runat="server" id="IDManageProductSupportByBeneficiaryView"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/In_Kind_Donation/PageSupportByBeneficiary.aspx")%>'><i class="fa fa-list fw"></i><span>فرز دعم المستفيد</span></a></li>
+                    
+                    <li runat="server" id="IDManageProductAddThePriceToOrder" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/In_Kind_Donation/PageView.aspx")%>'><i class="fa fa-file fw"></i><span>تفاصيل الفاتورة</span></a></li>
+                    <li id="menu-customer-FinancialStatistics">
+                        <a class="parent" id="pnlFinancialStatistics" runat="server" visible="false"><i class="fa fa-money fw"></i><span>الإحصاء المالي</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDFinancialStatisticsGeneral">
+                                <a class="parent"><i class="fa fa-money fw"></i> <span>الإحصاء المالي العام</span></a>
+                                <ul style="font-size: 12px">
+                                    <li><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsGeneral.aspx")%>'>الدعم العيني العام</a></li>
+                                    <li><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsGeneralHome.aspx")%>'>البناء والترميم</a></li>
+                                    <li><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsGeneralCashSupport.aspx")%>'>الدعم النقدي</a></li>
+                                </ul>
+                            </li>                           
+                            <li runat="server" id="IDFinancialStatisticsDetails">
+                                <a class="parent"><i class="fa fa-money fw"></i> <span>الإحصاء المالي التفصيلي</span></a>
+                                <ul style="font-size: 12px">
+                                    <li runat="server" id="IDFinancialStatistics"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatistics.aspx")%>'>إحصاء الدعم العيني </a></li>
+                                    <li runat="server" id="IDFinancialStatisticsByDevice"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsByDevice.aspx")%>'>الأدوية والأجهزة</a></li>
+                                    <li runat="server" id="IDFinancialStatisticsByHouse"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsByHomeFurnishing.aspx")%>'>تأثيث المنازل</a></li>
+                                    <li runat="server" id="IDFinancialStatisticsByBuilding"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsByBuilding.aspx")%>'>بناء وترميم المنازل</a></li>
+                                    <li runat="server" id="IDFinancialStatisticsByDamaged" visible="false"><a href="#">إحصاء التالف</a></li>
+                                    <li runat="server" id="IDFinancialStatisticsCashSupport"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsCashSupport.aspx")%>'>الدعم النقدي</a></li>
+                                </ul>
+                            </li>
+                            <li runat="server" id="IDFinancialStatisticsGeneralDoner">
+                                <a class="parent"><i class="fa fa-money fw"></i> <span> حسب الداعم</span></a>
+                                <ul style="font-size: 12px">
+                                    <li><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsByDonor.aspx")%>'>الدعم العيني</a></li>
+                                    <li><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsByDonorHome.aspx")%>'>البناء والترميم</a></li>
+                                    <li><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsByDonorCashSupport.aspx")%>'>الدعم النقدي</a></li>
+                                </ul>
+                            </li>
+                            <li runat="server" id="IDFinancialStatisticsByCustomers"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsByCustomers.aspx")%>'>حسب المستفيد</a></li>
+                            <li runat="server" id="IDFinancialStatisticsAll"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsGeneralAll.aspx")%>'>لجميع المشاريع</a></li>
+                            <li runat="server" id="IDFinancialStatisticsAllByYears"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/PageStatistics/PageStatisticsGeneralAllByYears.aspx")%>'>لجميع المشاريع حسب السنة</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Operating_Expenses">
+                        <a class="parent" id="pnlOperating_Expenses" runat="server" visible="false"><i class="fa fa-money fw"></i><span>المصاريف التشغيلية</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDOperating_ExpensesAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/Operating_Expenses/PageAdd.aspx")%>'>إضافة مصاريف تشغيلية</a></li>
+                            <li runat="server" id="IDOperating_ExpensesView" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/EOS/Operating_Expenses/PageAll.aspx")%>'>بيانات المصاريف التشغيلية</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-ITSupport"><a href="<%=ResolveUrl("~/ITSupport/")%>" target="_blank"><i class="fa fa-desktop fw"></i><span>الدعم الفني</span></a></li>
+                    <li id="menu-Back"><a href="<%=ResolveUrl("~/Cpanel/CHome/")%>"><i class="fa fa-share fw"></i><span>رجوع للبوابة الإلكتروني</span></a></li>
+                    <li id="menu-Out"><a href="<%=ResolveUrl("~/Cpanel/ERP/LogOut.aspx")%>"><i class="fa fa-sign-out fw"></i><span>خروج</span></a></li>
+                </ul>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+            <uc1:WUCLoding runat="server" ID="WUCLoding" />
+            
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <footer id="footer">
+                جميع الحقوق محفوظة
+            <a runat="server" id="IDSite" target="_blank">
+                <asp:Label ID="lblSite" runat="server" Text="جمعية البر والخدمات الإجتماعية بأرن"></asp:Label>
+            </a>&copy; <asp:Label ID="lblYears" runat="server"></asp:Label>
+            </footer>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </form>
+</body>
+</html>

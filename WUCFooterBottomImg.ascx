@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="WUCFooterBottomImg.ascx.cs" Inherits="WUCFooterBottomImg" %>
+<div><img src='<%=ResolveUrl("~/view/image/LogoBottomNew2.jpg?ID=12346")%>' style='width:100%; height:35px;' /></div>

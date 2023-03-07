@@ -1,0 +1,498 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPAr.master.cs" Inherits="ar_MPAr" %>
+
+<!DOCTYPE html>
+
+<html dir="rtl" lang='ar'>
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="content-type" content="text/html" />
+    <meta name="robots" content="index,follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>جمعية قادر</title>
+
+    <!-- Header Bar Theme -->
+    <meta name="theme-color" content="#037899" />
+    <meta name="msapplication-navbutton-color" content="#037899" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#037899" />
+
+    <!-- Customization -->
+    <link rel="shortcut icon" runat="server" id="IDShortIcon" href="/ImgSystem/ImgSetting/StartLogo.png" type="image/vnd.microsoft.icon" />
+
+    <!-- Scripts -->
+    <script src="/Themes/Ar_Qader/core/_jquery.js?v=1.24.0"></script>
+    <script src="/Themes/Ar_Qader/core/_jquery-ui.js?v=1.24.0"></script>
+    <script src="/Themes/Ar_Qader/core/_bootstrap.js?v=1.24.0"></script>
+    <script src="/Themes/Ar_Qader/core/_functions.js?v=1.24.0"></script>
+    <script src="/Themes/Ar_Qader/core/_menu.js?v=1.24.0"></script>
+
+    <!-- Style Sheets -->
+    <link href="/Themes/Ar_Qader/core/_fontawesome.css?v=1.24.0" rel="stylesheet" />
+    <link href="/Themes/Ar_Qader/core/_bootstrap.css?v=1.24.0" rel="stylesheet" />
+    <link href="/Themes/Ar_Qader/core/_core.css?v=1.24.0" rel="stylesheet" />
+    <link href="/Themes/Ar_Qader/core/_website.css?v=1.24.0" rel="stylesheet" />
+
+    <!-- Default Plugins -->
+    <link href="/Themes/Ar_Qader/plugins/animate.min.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/confirm.min.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/confirm.min.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/fancybox.min.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/fancybox.min.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/select2.min.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/select2.min.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/attachments.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/attachments.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/uploader.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/uploader.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/multiple-data.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/multiple-data.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/max-length.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/max-length.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/wizard.min.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/wizard.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/calendar.min.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/calendar.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/calendar_hijri.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/calendar_hijri.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/bootbox.min.js?v=1.24.0"></script>
+    <script src="/Themes/Ar_Qader/plugins/validator.min.js?v=1.24.0"></script>
+    <script src="/Themes/Ar_Qader/plugins/smooth-scroll.min.js?v=1.24.0"></script>
+    <script src="/Themes/Ar_Qader/plugins/sortable.js?v=1.24.0"></script>
+    <script src="/Themes/Ar_Qader/plugins/bootstrap-notify.min.js?v=1.24.0"></script>
+    <script src="/Themes/Ar_Qader/plugins/fixed-data.js?v=1.24.0"></script>
+
+    <!-- Store Plugins -->
+    <script src="/Themes/Ar_Qader/plugins/Store/animate-os.min.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/Store/animate-os.min.css" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/Store/preloader.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/Store/preloader.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/Store/jssocials.min.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/Store/jssocials.min.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/Store/swiper.min.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/Store/swiper.min.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/Store/waves.min.js?v=1.24.0"></script>
+    <link href="/Themes/Ar_Qader/plugins/Store/waves.min.css?v=1.24.0" rel="stylesheet" />
+    <script src="/Themes/Ar_Qader/plugins/Store/sticky.min.js?v=1.24.0"></script>
+
+    <!-- Template Specific -->
+    <link href="/Themes/Ar_Qader/template/template_New.css?v=1.24.0.11" rel="stylesheet" />
+
+    <!-- Load Basic Blocks CSS -->
+    <link href="/Themes/Ar_Qader/blocks/marketing.css?v=1.24.0" rel="stylesheet" />
+    <link href="/Themes/Ar_Qader/blocks/page_child.css?v=1.24.0" rel="stylesheet" />
+    <link href="/Themes/Ar_Qader/blocks/share.css?v=1.24.0" rel="stylesheet" />
+    <link href="/Themes/Ar_Qader/Content/ColorArn.css?v=1.24.0" rel="stylesheet" />
+    <!--Custom JavaScript-->
+    <!--Custom CSS-->
+    <!-- Custom Meta Data -->
+    <%--<div id="page-loading">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>--%>
+    <!-- Detect Current Platform & Initialize JS Token -->
+    <script type="text/javascript">
+        document.oncontextmenu = new Function("return false;");
+    </script>   
+    <script>
+        var user_token = "lu1cw1eylwgk4k8k4cc84scssc84ssc";
+        var current_platform = "Browser";
+        var onMobile = 0;
+    </script>
+</head>
+<body class="body website">
+    <div class="alert  alert-success alert-dismissible" role="alert">
+        <b>لا يوجد فروع أو مكاتب للجمعية , لا يوجد توظيف لعام 2021</b>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form id="form1" runat="server">
+        <!-- Body Headers -->
+        <div class="header_container">
+            <!--Header Bar-->
+            <div class="header original" style="">
+                <div class="container container-md">
+                    <div class="row grid-container header_components">
+                        <a href="https://drive.google.com/file/d/1k0oHSGS-jK_ZZj7RTEbYJLWbzMHy7DHz/view?usp=sharing" target="_blank"
+                                class="header_button" style="position:absolute; left:10px; top:-10px;"><i class='fas fa-file-pdf'></i>&nbsp;&nbsp;إحصاء المساعدات للعام 2020/2021</a>                       
+                        <div class="col-md-6 col-sm-6 col-xs-6 col-12">
+                            <div class="col-md-12 col-sm-12 col-xs-12 col-12 ">
+                                <div class="col-md-6 col-sm-6 col-xs-6 col-6 ">
+                                    <div class="header_logo">
+                                        <a href="/ar/">
+                                            <img src="/Themes/Ar_Qader/images/Main/widelogo.png?v=1.24.0" alt="" class="margin-right" />
+                                            <img class="negative margin-right" src="/Themes/Ar_Qader/images/Main/widelogow.png?v=1.24.0" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 col-6 ">
+                                    <a id="IDPhone" class="header_contact" runat="server">
+                                        <i class="fas fa-phone"></i><b>اتصل بنا</b>
+                                        <span>
+                                            <asp:Label ID="lblPhone" runat="server"></asp:Label>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 col-3">
+                                <a href="https://store.berarn.org.sa/" target="_blank" style="margin:5px;"
+                                class="header_button"><i class='fas fa-home-lg-alt'></i>&nbsp;&nbsp;للتبرع للجمعية</a>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 col-6 ">
+                                <a href="/Cpanel/" class="header_button" style="margin:5px;" target="_blank"><i class='fas fa-envelope'></i>&nbsp;&nbsp; البوابة الإلكترونية التفاعلية الشاملة</a>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 col-3">
+                                <a href="PageBeneficiaryRegistration.aspx" class="header_button" style="margin:5px;"><i class="fas fa-plus"></i>&nbsp;&nbsp;مستفيد جديد</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 col-12 right-div">
+                            <div class="col-md-3 col-sm-6 col-xs-6 col-4">
+                                <a href="PageContact-Us.aspx?Type=Inquiry" class="header_button" style="margin:5px;"><i class='fas fa-envelope'></i>&nbsp;&nbsp;إستفسار</a>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 col-4">
+                                <a href="PageContact-Us.aspx?Type=complaint" class="header_button" style="margin:5px;"><i class='fas fa-compass'></i>&nbsp;&nbsp;تقديم شكوى</a>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6 col-4">
+                                <a href="PageContact-Us.aspx?Type=suggestion" class="header_button" style="margin:5px;"><i class='fas fa-envelope-open-text'></i>&nbsp;&nbsp;تقديم إقتراح</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Main Menu-->
+            <div class="menu negative" id="nav-sticky">
+                <div class="nav-menu-container" style="">
+                    <div class="nav-menu-sm">
+                        <div class="container">
+                            <div class="nav-cover"><span class="close-nav" onclick="hideNavMenu()">×</span></div>
+                            <div class="nav-button" onclick="showNavMenu()"><i class="fas fa-bars"></i></div>
+                            <span><asp:Label ID="lblName" runat="server"></asp:Label></span>
+                        </div>
+                    </div>
+                    <div class="container container-basic">
+                        <ul class="nav-menu">
+                            <div class="nav-menu-sm">
+                                <center>
+                                <img src="/Themes/Ar_Qader/img/widelogo.png?v=1.24.0" class="logo margin-bottom margin-top" alt="">
+                            </center>
+                            </div>
+                            <li class='nav-item'><a href='/ar/'><i class='fas fa-home'></i>&nbsp;&nbsp;الرئيسية</a></li>
+                            <%= FManagementsGetViewF()%>
+                            <li class='nav-item nav-dropdown-item'>
+                                <a href='javaScript:void(0)'><i class='fas fa-microphone'></i>&nbsp;&nbsp;المركز الإعلامي <span class='fas fa-angle-down'></span></a>
+                                <ul class="nav-dropdown">
+                                    <div class="menu-links">
+                                        <div class='menu_block single'><b><a href='PageViewcontent.aspx?ID=6062&Uniq=9c73998e-8ef2-40f5-8c80-0646634936c6'><i class='fas fa-newspaper'></i>&nbsp;&nbsp;الأخبار</a></b></div>
+                                        <div class='menu_block single'><b><a href="PageAlbum.aspx"><i class='fas fa-image'></i>&nbsp;&nbsp;معرض الصور</a></b></div>
+                                        <div class='menu_block single'><b><a href="PageVideo.aspx"><i class='fab fa-youtube'></i>&nbsp;&nbsp;مكتبة الفيديو</a></b></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class='nav-item nav-dropdown-item'>
+                                <a href='javaScript:void(0)'><i class='fas fa-phone'></i>&nbsp;&nbsp;اتصل بنا <span class='fas fa-angle-down'></span></a>
+                                <ul class="nav-dropdown">
+                                    <div class="menu-links">
+                                        <div class='menu_block single'><b><a href="PageAbout.aspx"><i class='fas fa-envelope-open-dollar'></i>&nbsp;نبذة عنا</a></b></div>
+                                        <div class='menu_block single'><b><a href="PageContact-Us.aspx"><i class='fas fa-envelope'></i>&nbsp;راسلنا</a></b></div>
+                                        <div class='menu_block single'><b><a href='PageContact-Us.aspx?Type=suggestion'><i class='fas fa-envelope-open'></i>&nbsp;تقديم اقتراح</a></b></div>
+                                        <div class='menu_block single'><b><a href='PageContact-Us.aspx?Type=complaint'><i class='fas fa-envelope-open-text'></i>&nbsp;تقديم شكوى</a></b></div>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+
+        <!-- Include Footer -->
+        <div class="footer">
+            <!-- Module -->
+            <div class="module_custom module negative BackgroundAll">
+                <div class="container container-basic">
+                    <div style="height: 30px"></div>
+                    <!-- Title -->
+                    <!-- Content -->
+                    <div class="row grid-container-15" style="justify-content: flex-start; align-items: stretch; flex-wrap: wrap">
+                        <div class="col-md-4 col-sm-4 grid-item">
+                            <div class="html_content">
+                                <span style="color: #ffffff;"><strong>نبذة عنا</strong></span>
+                                <br />
+                                <br />
+                                <span style="font-size: 14px; color: #ffffff;">
+                                    <asp:Label ID="lblAbout" runat="server"></asp:Label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-5 grid-item">
+                            <div class="module_inline_links1 inline_module">
+                                <!-- Title -->
+                                <div class="module_description">
+                                    <h1 data-aos="fade-down" style='color: #ffffff'>الروابط السريعة</h1>
+                                </div>
+                                <!-- Content -->
+                                <div class="module_content" data-aos="fade-in">
+                                    <ul class="links">
+                                        <li><a href="/ar/">الرئيسية</a></li>
+                                        <li><a href="PageAbout.aspx">نبذة عنا</a></li>
+                                        <li><a href="PageContact-Us.aspx">راسلنا</a></li>
+                                        <li><a href="PageAlbum.aspx">مكتبة الصور</a></li>
+                                        <li><a href="PageVideo.aspx">مكتبة الفيديو</a></li>
+                                        <li><a href="PagePartners.aspx">شركاؤنا</a></li>
+                                        <li><a href="PageViewcontent.aspx?ID=6062&Uniq=9c73998e-8ef2-40f5-8c80-0646634936c6">الأخبار</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 grid-item">
+                            <div class="module_inline_contact1 inline_module">
+
+                                <!-- Title -->
+                                <div class="module_description">
+                                    <h1 data-aos="fade-down" style='color: #ffffff'>إتصل بنا</h1>
+                                </div>
+
+                                <!-- Content -->
+                                <div class="module_content" data-aos="fade-in">
+                                    <div class="contact_table">
+                                        <div>
+                                            <i class='glyphicon glyphicon-phone'></i><span>
+                                                <a id="IDPhone2" runat="server">
+                                                    <asp:Label ID="lblPhone2" runat="server"></asp:Label>
+                                                </a>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <i class='glyphicon glyphicon-envelope'></i>
+                                            <span>
+                                                <a id="IDEmail" runat="server">
+                                                    <asp:Label ID="lblEmail" runat="server"></asp:Label>
+                                                </a>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <i class='glyphicon glyphicon-map-marker'></i>
+                                            <span>
+                                                <a id="IDLocation" runat="server" target="_blank">الموقع على الخريطة
+                                                </a>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <i>
+                                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIgAAACUCAYAAABIrmGyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA/tpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ1dWlkOjVEMjA4OTI0OTNCRkRCMTE5MTRBODU5MEQzMTUwOEM4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjI5MjUzOEY2ODFFRTExRUNCNEEyRDAzODg1NUJENTY1IiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjI5MjUzOEY1ODFFRTExRUNCNEEyRDAzODg1NUJENTY1IiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIElsbHVzdHJhdG9yIDI2LjAgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0idXVpZDo4OTFlZGM1MS0yY2MwLTFkNDYtYTA1Mi01NWFmM2Q4YTI2M2YiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTc5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" width="30" />
+                                            </i>
+                                            <span>
+                                                تصميم و تطوير: 
+                                                    <b>
+                                                    <a href="http://www.ITFY-Edu.net/" target="_blank">التقنية لأجلك
+                                                    </a>
+                                                </b>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Social Media -->
+                                    <div class="social_media">
+                                        <small>تجدنا علي</small>
+                                        <div>
+                                            <a runat="server" id="IDFacebook" title='سناب شات' data-toggle="tooltip" target="_blank" style='background: #ffd800; color: #ffffff'>
+                                                <span class='fab fa-snapchat'></span>
+                                            </a>
+                                            <a runat="server" id="IDtwitter" title="تويتر" data-toggle="tooltip" target="_blank" style='background: #21a1f0; color: #21a1f0'>
+                                                <span class='fab fa-twitter'></span>
+                                            </a>
+                                            <a runat="server" id="IDyoutube" title="يوتيوب" data-toggle="tooltip" target="_blank" style='background: #fe0303; color: #fe0303'>
+                                                <span class='fab fa-youtube'></span>
+                                            </a>
+                                            <a href='#' target="_blank" style='background: #ff6a00; color: #ffffff'>
+                                                <span class='fa fa-rss'></span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Buttons -->
+                    <div style="height: 30px"></div>
+                </div>
+            </div>
+            <!-- Copyrights -->
+            <div class="copyrights">
+                <div class="container container-md">
+                    <div>
+                        © كافة الحقوق محفوظة ل
+                            <asp:Label ID="lblNameOrg" runat="server"></asp:Label>
+                        <asp:Label ID="lblYear" runat="server"></asp:Label>
+                    </div>
+                    <small>عدد الزيارات
+                      <asp:Label ID="lblCountVisit" runat="server" Text="0" CssClass="CountNumber" Style="color: #fff"></asp:Label>
+                    </small>&nbsp;&nbsp;
+                <small>
+                    <b>
+                        <a href="https://www.ITFY-Edu.net/" target="_blank">التقنية لأجلك
+                        </a>
+                    </b>
+                </small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fixed Components -->
+        <div class='index_anchor bottom-left'>
+            <script>
+                var main_button = null;
+                var sub_button = null;
+                var containerVisible = false;
+                var currentIcon = 0;
+
+                $(document).ready(function () {
+                    main_button = $(".live_contact .main_button");
+                    sub_button = $(".live_contact .sub_buttons_container");
+                    $(".contact_overlay").click(function () {
+                        toggleLiveContainer();
+                    });
+                    main_button.html("<span class='fas fa-times'></span><i class='" + contact_buttons[currentIcon].icon + "'></li>").click(function () {
+                        toggleLiveContainer()
+                    });
+                    function intervalFunction() {
+                        if (document.hasFocus()) {
+                            main_button.find("i").fadeOut(250, function () {
+                                $(this).attr("class", contact_buttons[currentIcon].icon);
+                            }).fadeIn(250);
+                            if (currentIcon == contact_buttons.length - 1) {
+                                currentIcon = 0;
+                            } else {
+                                currentIcon += 1;
+                            }
+                        }
+                    }
+                    var fadeInterval = setInterval(intervalFunction, 2000);
+                    contact_buttons.forEach(function (val, index) {
+                        sub_button.append("<div class=sub_button_container><div class=sub_button id=sub_button_" + index + "><i class='" + val.icon + "'></i><span>" + val.title + "</span></div></div>");
+                        $("#sub_button_" + index).on("click", val.action);
+                        $("#sub_button_" + index).on("click", function () {
+                            $(".contact_overlay").trigger("click");
+                        });
+                    });
+                    function toggleLiveContainer() {
+                        if (containerVisible) {
+                            containerVisible = false;
+                            fadeInterval = setInterval(intervalFunction, 2000);
+                            $(".contact_overlay").fadeOut(200);
+                            main_button.find("span").fadeOut(200, function () {
+                                main_button.find("i").fadeIn(200);
+                            });
+                            main_button.removeClass("active");
+                            $(".live_contact").removeClass("active");
+                            $(".contact_overlay").removeClass("active");
+                            sub_button.animate({
+                                opacity: "0",
+                                top: "20px",
+                            }, 250, function () {
+                                sub_button.css("display", "none");
+                            });
+                        } else {
+                            containerVisible = true;
+                            clearInterval(fadeInterval);
+                            $(".contact_overlay").fadeIn(200);
+                            main_button.find("i").fadeOut(200, function () {
+                                main_button.find("span").fadeIn(200);
+                            });
+                            main_button.addClass("active");
+                            $(".live_contact").addClass("active");
+                            $(".contact_overlay").addClass("active");
+                            sub_button.css("display", "flex");
+                            sub_button.animate({
+                                opacity: "1",
+                                top: "0px",
+                            }, 250);
+                        }
+                    }
+                });
+
+                var contact_buttons = [
+                    {
+                        title: "واتساب",
+                        icon: "fab fa-whatsapp",
+                        action: function () {
+                            window.open("https://api.whatsapp.com/send?phone=" + document.getElementById('<%= lblPhone.ClientID %>').innerHTML);
+                        }
+                    },
+                    {
+                        title: "إتصل بنا",
+                        icon: "fas fa-mobile-alt",
+                        action: function () {
+                            window.location.href = "tel:" + document.getElementById("<%=lblPhone.ClientID %>").innerHTML;
+                        }
+                    },
+                    {
+                        title: "راسلنا",
+                        icon: "fas fa-envelope",
+                        action: function () {
+                            window.location.href = "#";
+                        }
+                    }
+                ];
+            </script>
+
+            <div class="contact_overlay"></div>
+            <div class="live_contact">
+                <div class="sub_buttons_container"></div>
+                <div class="main_button"></div>
+            </div>
+        </div>
+
+        <div class='index_anchor bottom-right'>
+            <a href="javaScript:void(0)" class="anchor_scrolltop1"><i class="fas fa-angle-up"></i></a>
+
+            <script>
+                $(document).ready(function () {
+                    $(window).scroll(function () {
+                        if ($(this).scrollTop() > 100) {
+                            $(".anchor_scrolltop1").fadeIn();
+                        } else {
+                            $(".anchor_scrolltop1").fadeOut();
+                        }
+                    });
+                    $(".anchor_scrolltop1").click(function () {
+                        $("html,body").animate({
+                            scrollTop: 0
+                        }, 600);
+                        return false;
+                    });
+                });
+            </script>
+        </div>
+        <!--Modals-->
+
+        <!--Custom JavaScript-->
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130653575-14"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag("js", new Date());
+            gtag("config", "UA-130653575-14");
+        </script>
+
+        <!-- Facebook Pixel -->
+        <!-- Javascript Setup -->
+
+        <script src="/Themes/Ar_Qader/core/_setup.js?v=1.24.0"></script>
+    </form>
+</body>
+</html>

@@ -1,0 +1,119 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPITSupport.master.cs" Inherits="ITSupport_MPITSupport" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>
+    Business Core | Video Control Pane first Video</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css' />
+    <link rel="shortcut icon" href="../ImgSystem/ImgSetting/StartLogo.png" type="image/vnd.microsoft.icon" />
+    <!-- CSS Files -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="menu/css/simple_menu.css" />
+    <link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+    <!-- JS Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/slides/slides.min.jquery.js"></script>
+    <script src="js/cycle-slider/cycle.js"></script>
+    <script src="js/nivo-slider/jquery.nivo.slider.js"></script>
+    <script src="js/tabify/jquery.tabify.js"></script>
+    <script src="js/prettyPhoto/jquery.prettyPhoto.js"></script>
+    <script src="js/twitter/jquery.tweet.js"></script>
+    <script src="js/scrolltop/scrolltopcontrol.js"></script>
+    <script src="js/portfolio/filterable.js"></script>
+    <script src="js/modernizr/modernizr-2.0.3.js"></script>
+    <script src="js/easing/jquery.easing.1.3.js"></script>
+    <script src="js/kwicks/jquery.kwicks-1.5.1.pack.js"></script>
+    <script src="js/swfobject/swfobject.js"></script>
+    <!-- FancyBox -->
+    <link rel="stylesheet" type="text/css" href="js/fancybox/jquery.fancybox.css" media="all" />
+    <script src="js/fancybox/jquery.fancybox-1.2.1.js"></script>
+    <style type="text/css">
+        @font-face {
+            font-family: 'AlWatanHeadlines-Bold';
+            src: url('../fonts/AlWatanHeadlines-Bold.ttf') format('truetype');
+            font-weight: bold;
+        }
+
+        body , h1 , h2 , h3 ,h4 ,h5 ,h6 ,p  ,ul ,a ,u,i ul,li, ul > li, input{font-family: AlWatanHeadlines-Bold, serif; font-weight:unset;}
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="header">
+        <div id="site_title">
+            <a href="Default.aspx">
+                <img src="img/logo.png" alt=""></a></div>
+        <!-- Main Menu -->
+        <ol id="menu">
+            <li class="active_menu_item"><a href="Default.aspx">Home</a> </li>
+            <!-- END sub menu -->
+            <li><a href="http://itfy-edu.com/#about" target="_blank">About US</a></li>
+            <!-- END sub menu -->
+            <li><a href="http://itfy-edu.com/#contact" target="_blank">Contact</a></li>
+            <!-- END sub menu -->
+            <li><a href="Tel:00967775776703">+967775776703</a></li>
+        </ol>
+    </div>
+    <!-- END header -->
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" >
+        
+        </asp:ContentPlaceHolder>
+    <!-- close container -->
+    <div id="footer">
+        <!-- First Column -->
+        <div class="one-fourth">
+            <h3>
+                Contact us</h3>
+            <ul class="footer_links">
+                <li><a href="http://www.itfy-edu.net/">www.ITFY-Edu.net</a></li>
+                <li><a href="mailto:ITFYEdu@gmail.com">ITFYEdu@gmail.com</a></li>
+                <li><a href="#">Sanaa - 60 Street</a></li>
+            </ul>
+        </div>
+        <!-- Second Column -->
+        <div class="one-fourth ">
+            <h3>
+                Learn about site</h3>
+            <ul class="footer_links">
+                <li><a href="http://itfy-edu.com/index.html#Works" target="_blank">Our last business</a></li>
+                <li><a href="http://itfy-edu.com/About" target="_blank">About US</a></li>
+                <li><a href="http://itfy-edu.com/sitemap" target="_blank">Sitemap</a></li>
+            </ul>
+        </div>
+        <!-- Third Column -->
+        <div class="one-fourth ">
+            <h3>
+                Information</h3>
+            Phone <a href="Tel:00967775776703">+967-775-776-703</a><br />
+            Email <a href="mailto:ITFYEdu@gmail.com">ITFYEdu@gmail.com</a>
+        </div>
+        <!-- Fourth Column -->
+        <div class="one-fourth last">
+            <h3>
+                Socialize</h3>
+            <a href="https://facebook.com/ITFYEdu.co" target="_blank" title="facebook">
+                <img src="img/icon_fb.png" alt="">
+                <span class="fa facebook"></span></a><a href="http://itfy-edu.com" target="_blank"
+                    title="Site">
+                    <img src="img/site.png" alt="" style="width: 30px">
+                </a><a href="https://www.youtube.com/channel/UCS8_t9SgyqX09aq-kOG5fNQ" target="_blank"
+                    title="youtube">
+                    <img src="img/Tube.png" alt="" style="width: 30px">
+                </a>
+        </div>
+        <div style="clear: both">
+        </div>
+    </div>
+    <!-- END footer -->
+    <div id="shadow">
+    </div>
+    <!-- Dim Lights (video) -->
+    </form>
+</body>
+</html>

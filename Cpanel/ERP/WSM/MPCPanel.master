@@ -1,0 +1,209 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPCPanel.master.cs" Inherits="Cpanel_ERP_WSM_MPCPanel" %>
+<%@ Register Src="~/Cpanel/CAttach/WUCLoding.ascx" TagPrefix="uc1" TagName="WUCLoding" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>لوحة التحكم</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="/ImgSystem/ImgSetting/StartLogo.png" type="image/vnd.microsoft.icon" />
+
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/jquery-2.1.1.min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/bootstrap/js/bootstrap.min.js")%>"></script>
+    <link href="<%=ResolveUrl("~/view/javascript/font-awesome/css/font-awesome.min.css")%>" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/view/javascript/summernote/summernote.css")%>" rel="stylesheet" />
+    
+    <script src="<%=ResolveUrl("~/view/javascript/summernote/summernote.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/summernote/lang/summernote-ar-AR.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/moment.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js")%>"></script>
+
+    <link href="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css")%>" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/view/stylesheet/bootstrap-a.css")%>" rel="stylesheet" media="screen" />
+    <link href="<%=ResolveUrl("~/view/stylesheet/stylesheet-a.css?v=2.2")%>" rel="stylesheet" media="screen" />
+
+    <script src="<%=ResolveUrl("~/view/javascript/common.js")%>"></script>
+
+    <link href="<%=ResolveUrl("~/fonts/font-awesome.css")%>" rel="stylesheet" type="text/css" />
+    <link href="~/Cpanel/GridView.css?v=2.2" rel="stylesheet" type="text/css" />
+    <link href="/Themes/Ar_Qader/Content/ColorArn.css" rel="stylesheet" />
+    <style type="text/css">
+        body, h1, h2, h3, h4, h5, h6, p, ul, a, input, title {
+            font-family: 'Droid Arabic Kufi', serif;
+        }
+
+        @media screen and (min-width: 768px) {
+            .FoDesktop {
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .FoDesktop {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="container">
+            <header id="header" class="navbar navbar-static-top ColorHome">
+                <div class="navbar-header">
+                    <a type="button" id="button-menu" class="pull-left"><i class="fa fa-indent fa-lg"></i></a>
+                    <a href="<%=ResolveUrl("~/Cpanel/ERP/WSM/") %>" class="navbar-brand FoDesktop">نظام المستودع
+                        <%--<img src="../view/image/logo.png" id="ImgHome" runat="server" alt="لوحة التحكم" title="لوحة التحكم" width="123" height="23" />--%>
+                    </a>
+
+                </div>
+                <ul class="nav pull-right">
+                    <li><a href="##" class="FoDesktop" onclick="history.go(-1); return false;"><span class="hidden-xs hidden-sm hidden-md">رجوع</span> <i class="fa fa-share fa-lg"></i></a></li>
+                    <li runat="server" id="IDHRM" visible="false" class="BackgroundAll">
+                        <a href="/Cpanel/ERP/HRAndPayRoll/Admin/">
+                            <span class="label label-danger pull-left">
+                                <asp:Label ID="lblNotifications" runat="server" Text="0"></asp:Label></span>
+                            <span class="hidden-xs hidden-sm hidden-md" style="color:#F0F0F0;">نظام الموظف <i class="fa fa-connectdevelop fa-lg"></i></span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="hidden-xs hidden-sm hidden-md">حسابي</span> <i class="fa fa-user fa-lg"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-header"><i class="fa fa-file fa-lg"></i> بياناتي </li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/CHome/PageMyAccount.aspx")%>">تعديل بياناتي</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header"><i class="fa fa-lock fa-lg"></i> كلمة المرور </li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/CHome/PageMyPassword.aspx")%>">تعديل كلمة المرور</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<%=ResolveUrl("~/Cpanel/ERP/LogOut.aspx")%>"><span class="hidden-xs hidden-sm hidden-md">خروج</span> <i class="fa fa-sign-out fa-lg"></i></a></li>
+                </ul>
+            </header>
+            <nav id="column-left">
+                <div id="profile">
+                    <div>
+                        <a href="<%=ResolveUrl("~/Cpanel/ERP/WSM/") %>" title="الرئيسية">
+                            <img src="<%=ResolveUrl("~/Img/Logo.png")%>" width="65" /></a>
+                        <%--<i class="fa fa-opencart"></i>--%>
+                    </div>
+                    <div>
+                        <h4><asp:Label ID="lblFirstName" runat="server" Font-Size="12px"></asp:Label></h4>
+                        <small>
+                            <asp:Label ID="lblLestName" runat="server" Text="مرحباً بك"></asp:Label>
+                        </small>
+                    </div>
+                </div>
+                <ul id="menu">
+                    <li id="menu-dashboard">
+                        <a href="<%=ResolveUrl("~/Cpanel/ERP/WSM/")%>"><i class="fa fa-home fw"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li id="menu-customer-Affiliation">
+                        <a class="parent" id="pnlAffiliation" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>إدارة الإنتماء</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDManageAffiliation" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageAffiliation/PageAll.aspx")%>'>إدارة الإنتماء</a></li>
+                            <li runat="server" id="IDManageProductByAffiliationView" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageProduct/PageProductByAffiliation.aspx")%>'>المنتجات حسب الإنتماء</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-Category">
+                        <a class="parent" id="pnlCategory" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>إدارة الاصناف</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDManageCategory" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageCategory/PageAll.aspx")%>'>إدارة الاصناف</a></li>
+                            <li runat="server" id="IDManageProductByCategoryView" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageProduct/PageProductByCategory.aspx")%>'>المنتجات حسب الصنف</a></li>
+                        </ul>
+                    </li>
+                    <li runat="server" id="IDManageStoragePlaces" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageStoragePlaces/PageAll.aspx")%>'><i class="fa fa-stack-overflow fw"></i><span>أماكن التخزين</span></a></li>
+
+                    <li runat="server" id="IDManageProduct" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageProduct/PageAll.aspx")%>'><i class="fa fa-sheqel fw"></i><span>إدارة المنتجات</span></a></li>
+                    <li runat="server" id="IDManageProductShippingWarehouseAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageShipping/PageAdd.aspx")%>'><i class="fa fa-shopping-cart fw"></i><span>شحن المستودع(الوارد)</span></a></li>
+                    <li id="menu-customer-Shop">
+                        <a class="parent" id="pnlManageProductWarehouse" runat="server" visible="false"><i class="fa fa-check-square fw"></i><span>موافقة الشحن</span></a>
+                        <ul style="font-size:12px">
+                            <li runat="server" id="IDManageProductWarehouseApprovalOfTheDirectorAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageShipping/PageApprovalOfTheDirector.aspx")%>'>موافقة مدير الجمعية</a></li>
+                            <li runat="server" id="IDManageProductWarehouseCashierAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageShipping/#.aspx")%>'>موافقة المشرف المالي</a></li>
+                            <li runat="server" id="IDManageProductWarehouseChairmanOfTheBoardAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageShipping/#.aspx")%>'>موافقة رئيس المجلس</a></li>
+                            <li runat="server" id="IDManageProductWarehouseStorekeeperAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageShipping/PageStorekeeper.aspx")%>'>مصادقة أمين المستودع</a></li>
+                            <%--<li><a href="PageManageProductWarehousebyProductsCloseToCompletion.aspx">منتجات قاربت على الإنتهاء</a></li>--%>
+                        </ul>
+                    </li>
+                    <li id="menu-Bill">
+                        <a class="parent" id="IDBill" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>قائمة فواتير الشحن</span></a>
+                        <ul style="font-size:12px">
+                            <li runat="server" id="IDManageProductWarehouseInvoiceListView"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageShipping/PageAll.aspx")%>'>فواتير الشحن</a></li>
+                            <li runat="server" id="IDManageProductWarehouseCatchReceiptView"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/PageShipping/PageView.aspx")%>'>تفاصيل الفاتورة</a></li>
+                        </ul>
+                    </li>
+                    <li runat="server" id="IDManageProductWarehousebyContainedView" visible="false"><a href="PageManageProductWarehousebyContained.aspx"><i class="fa fa-search fw"></i><span>بحث تفصيلي للوارد</span></a></li>
+                    <li runat="server" id="IDManageProductWarehousebyIssuedView" visible="false"><a href="PageManageProductWarehousebyIssued.aspx"><i class="fa fa-search fw"></i><span>بحث تفصيلي للصادر</span></a></li>
+                    <li runat="server" id="IDManageProductWarehousebyContainedAndIssuedView" visible="false"><a href="PageManageProductWarehousebyContainedAndIssued.aspx"><i class="fa fa-search fw"></i><span>تفصيلي الوارد والصادر</span></a></li>
+
+                    <li id="menu-Damaged">
+                        <a class="parent" id="IDAllowDamaged" runat="server" visible="false"><i class="fa fa-check-square fw"></i><span>أوامر صرف التالف</span></a>
+                        <ul style="font-size:12px">
+                            <li runat="server" id="IDManageProductMatterOfExchangeForDamagedAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/DamagedExchange/PageMatterOfExchangeForDamaged.aspx")%>'>إنشاء أمر صرف تالف</a></li>
+                            <li runat="server" id="IDManageProductViceBoardAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/DamagedExchange/PageViceBoard.aspx")%>'>موافقة نائب الرئيس</a></li>
+                            <li runat="server" id="IDManageProductChairmanOfTheBoardAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/DamagedExchange/PageChairmanOfTheBoard.aspx")%>'>موافقة رئيس المجلس</a></li>
+                            <li runat="server" id="IDManageProductStorekeeperAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/DamagedExchange/PageStorekeeper.aspx")%>'>مصادقة أمين المستودع</a></li>
+                            <li runat="server" id="IDDamagedAll" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/DamagedExchange/PageAll.aspx")%>'>جميع فواتير التالف</a></li>
+                            <li runat="server" id="IDManageProductMatterOfExchangeForDamagedView" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/DamagedExchange/PageView.aspx")%>'>تفاصيل الفاتورة</a></li>
+                            <%--<li><a href="PageManageProductWarehousebyProductsCloseToCompletion.aspx">منتجات قاربت على الإنتهاء</a></li>--%>
+                        </ul>
+                    </li>
+                    <li id="menu-Statistic">
+                        <a class="parent" id="pnlStatistics" runat="server" visible="true"><i class="fa fa-money fw"></i><span>الاحصاء المالي</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDStatistics" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/Statistics/PageStatistics.aspx")%>'>احصاء الوارد</a></li>
+                            <li runat="server" id="IDStatisticsMony" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/WSM/Statistics/PageStatisticsMony.aspx")%>'>إجمالي ماشحن وتم صرفة</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-ITSupport"><a href="<%=ResolveUrl("~/ITSupport/")%>" target="_blank"><i class="fa fa-desktop fw"></i><span>الدعم الفني</span></a></li>
+                    <li id="menu-Back"><a href="<%=ResolveUrl("~/Cpanel/CHome/")%>"><i class="fa fa-share fw"></i><span>رجوع للبوابة الإلكتروني</span></a></li>
+                    <li id="menu-Out"><a href="<%=ResolveUrl("~/Cpanel/ERP/LogOut.aspx")%>"><i class="fa fa-sign-out fw"></i><span>خروج</span></a></li>
+                </ul>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+            <uc1:WUCLoding runat="server" ID="WUCLoding" />
+            
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <footer id="footer">
+                جميع الحقوق محفوظة
+            <a runat="server" id="IDSite" target="_blank">
+                <asp:Label ID="lblSite" runat="server" Text="جمعية البر والخدمات الإجتماعية بأرن"></asp:Label>
+            </a>&copy; <asp:Label ID="lblYears" runat="server"></asp:Label>
+            </footer>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </form>
+    <style type="text/css">
+        .modal-open {
+            overflow: hidden
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+            outline: 0;
+            background-color: hsla(120, 3%, 82%, 0.30);
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,2 @@
+﻿<%@ Control Language="VB" AutoEventWireup="false" CodeFile="WebUserControl.ascx.vb" Inherits="WebUserControl" %>
+<div><img src='<%=ResolveUrl("~/view/image/Fotter.jpg")%>' style='width:100%; height:100px;' /></div>

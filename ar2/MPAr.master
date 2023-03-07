@@ -1,0 +1,579 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPAr.master.cs" Inherits="ar_MPAr" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128876921-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-128876921-1');
+    </script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="alternate" type="application/rss+xml" title="جمعية البر والخدمات الإجتماعية بأرن آر.إس.إس" href="ar/rss.xml" />
+    <link rel="shortcut icon" href="../view/sites/default/files/favicon2.ico" type="image/vnd.microsoft.icon" />
+    <meta name="description" content="" />
+    <meta name="abstract" content="" />
+    <meta name="keywords" content="" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جمعية البر والخدمات الإجتماعية بأرن</title>
+    <link type="text/css" rel="stylesheet" href="../view/sites/default/files/css/css_woIztW8ifWHtEhGfGXbq1ML4NyjErttubWKldKUHDDE.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="../view/sites/default/files/css/css_YJo600u5DslEXHHEBzo7Whs7zYvH8oZK7MuO9r6-Ktg.css" media="screen" />
+    <link type="text/css" rel="stylesheet" href="../view/sites/default/files/css/css_Tsk_g9CCXF_Mntu02H4-rXzDnWZAa1hhS-kIGhdx7QE.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="../view/sites/default/files/css/css_ptXXCPk70C6dQgueaHWQfCeoN6_gjvYD9aJh7Ckv05U.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="../view/sites/default/files/css/css_eOO_txm9NWm6gOmaWUcep_uvw22UKgWKz7dpg55lMEo.css" media="all" />
+    <script src="../view/sites/default/files/js/jquery-3.3.1.min.js"></script>
+    <script>window.jQuery || document.write("<script src='../view/sites/default/files/js/jquery.min.js'>\x3C/script>")</script>
+
+    <script src="../view/sites/default/files/js/js_ONxdc2oA9D_FHKxOGYsEV_E8cfqueGbYWE_fTYuqEIE.js"></script>
+    <script src="../view/sites/default/files/js/js_1KZlINgJlrgrIzHJEYQJrjCmX6bT4czGWhXuaNqG4Fo.js"></script>
+
+    <script>(function (i, s, o, g, r, a, m) { i["GoogleAnalyticsObject"] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o), m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m) })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga"); ga("create", "UA-67619962-1", { "cookieDomain": "auto" }); ga("set", "anonymizeIp", true); ga("set", "metric1", 0); ga("send", "pageview");</script>
+
+    <script src="../view/sites/default/files/js/js_2KlXA4Z5El1IQFVPxDN1aX5mIoMSFWGv3vwsP77K9yk.js"></script>
+    <script src="../view/sites/default/files/js/js_NifYUF5kpWnpZIe9IbfAtBFd84zsmRofYufAEV2lqwU.js"></script>
+
+    <script>jQuery.extend(Drupal.settings, {
+    "basePath": "\/", "pathPrefix": "ar\/", "ajaxPageState": {
+        "theme": "mlsd2019", "theme_token": "meXT8DofKkI3QD5qJ8Nkzw8rf6j2CbXSCRlklQkmEys", "js": {
+            "../view/sites\/all\/themes\/bootstrap\/js\/bootstrap.js": 1,
+            "\/\/code.jquery.com\/jquery-1.10.2.min.js": 1, "0": 1, "misc\/jquery.once.js": 1,
+            "misc\/drupal.js": 1,
+            "../view/sites\/all\/modules\/jquery_dollar\/jquery_dollar.js": 1,
+            "../view/sites\/all\/modules\/tipsy\/javascripts\/jquery.tipsy.js": 1,
+            "../view/sites\/all\/modules\/tipsy\/javascripts\/tipsy.js": 1,
+            "public:\/\/languages\/ar_ov_7hulu9rPuBK-eMna4GRj5HMoXlh9zco4CIFEG0uE.js": 1,
+            "../view/sites\/all\/modules\/google_analytics\/googleanalytics.js": 1, "1": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/js\/front.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/js\/popper.min.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/js\/bootstrap.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/plugins\/select2\/js\/select2.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/plugins\/select2\/js\/i18n\/ar.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/js\/jquery.mousewheel.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/plugins\/lightGallery\/lib\/jquery.mousewheel.min.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/plugins\/lightGallery\/dist\/js\/lightgallery-all.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/plugins\/OwlCarousel\/js\/owl.carousel.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/js\/list.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/js\/custom-list.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/js\/custom.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/js\/bookmark.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/js\/resize.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/js\/annyang.js": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/js\/comandvoice.js": 1
+        }, "css": {
+            "modules\/system\/system.base.css": 1,
+            "modules\/system\/system.base-rtl.css": 1,
+            "../view/sites\/all\/modules\/tipsy\/stylesheets\/tipsy.css": 1,
+            "../view/sites\/all\/modules\/appointments\/css\/style.css": 1,
+            "../view/sites\/all\/modules\/calendar\/css\/calendar_multiday.css": 1,
+            "../view/sites\/all\/modules\/date\/date_api\/date.css": 1,
+            "../view/sites\/all\/modules\/date\/date_api\/date-rtl.css": 1,
+            "../view/sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css": 1,
+            "modules\/field\/theme\/field.css": 1,
+            "modules\/field\/theme\/field-rtl.css": 1,
+            "modules\/node\/node.css": 1,
+            "../view/sites\/all\/modules\/youtube\/css\/youtube.css": 1,
+            "../view/sites\/all\/modules\/views\/css\/views.css": 1,
+            "../view/sites\/all\/modules\/views\/css\/views-rtl.css": 1,
+            "../view/sites\/all\/modules\/ckeditor\/css\/ckeditor.css": 1,
+            "../view/sites\/all\/modules\/ckeditor\/css\/ckeditor-rtl.css": 1,
+            "../view/sites\/all\/modules\/ctools\/css\/ctools.css": 1,
+            "../view/sites\/all\/modules\/rate\/rate.css": 1,
+            "../view/sites\/all\/modules\/faq\/faq.css": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/css\/bootstrap.css": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/icons\/fs\/css\/all.css": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/icons\/mlsd\/styles.css": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/plugins\/select2\/css\/select2.css": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/plugins\/lightGallery\/dist\/css\/lightgallery.css": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/plugins\/OwlCarousel\/css\/owl.carousel.min.css": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/plugins\/OwlCarousel\/css\/owl.theme.default.min.css": 1,
+            "../view/sites\/all\/themes\/mlsd2019\/assets\/css\/theme.css": 1
+        }
+
+    }
+    , "tipsy": { "custom_selectors": [{ "selector": ".tipsy", "options": { "fade": 1, "gravity": "w", "delayIn": 0, "delayOut": 0, "trigger": "hover", "opacity": "0.8", "offset": 0, "html": 0, "tooltip_content": { "source": "attribute", "selector": "title" } } }] }, "googleanalytics": { "trackOutbound": 1, "trackMailto": 1, "trackDownload": 1, "trackDownloadExtensions": "7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip" }, "mlsd2019": { "language": "ar" }, "bootstrap": { "anchorsFix": "0", "anchorsSmoothScrolling": "0", "formHasError": 1, "popoverEnabled": 0, "popoverOptions": { "animation": 1, "html": 0, "placement": "right", "selector": "", "trigger": "click", "triggerAutoclose": 1, "title": "", "content": "", "delay": 0, "container": "body" }, "tooltipEnabled": 0, "tooltipOptions": { "animation": 1, "html": 0, "placement": "auto left", "selector": "", "trigger": "hover focus", "delay": 0, "container": "body" } }
+});
+
+    </script>
+
+    <script type="text/javascript" src="../view/sites/default/files/js/buttons.js"></script>
+
+    <script type="text/javascript">stLight.options({ publisher: "c20a243a-2793-457f-a88e-54a424b63fea", doNotHash: true, doNotCopy: true, hashAddressBar: false });</script>
+    <link href="../view/sites/all/themes/open_framework/fontawesome/css/font-awesome-ie7.min.css" rel="stylesheet" />
+    <!--[if IE 7]>
+  <link rel="stylesheet" href="/../view/sites/all/themes/open_framework/fontawesome/css/font-awesome-ie7.min.css">
+  <![endif]-->
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+    <script src="/../view/sites/all/themes/open_framework/js/html5shiv.js"></script>
+    <![endif]-->
+    <link href="../view/sites/all/themes/mlsd2019/css/style-undefined.css" type="text/css" rel="stylesheet" id="sample" />
+    <link href="../view/sites/all/themes/mlsd2019/css/style-undefined.css" type="text/css" rel="stylesheet" id="theme_color" />
+    <!--[if IE]>
+  <link rel="stylesheet" href="/../view/sites/all/themes/mosa/css/ie.css" type="text/css" />
+  <![endif]-->
+
+    <!--   responsive -->
+    <link href="../view/sites/all/themes/mlsd2019/assets/css/responsive.css" type="text/css" rel="stylesheet" />
+    <link type="text/css" href="../view/sites/all/themes/mlsd2019/assets/css/accss_normal.css" rel="stylesheet" id="accss" />
+    <link rel="stylesheet" type="text/css" href="../view/sites/all/themes/mlsd2019/assets/icons/icon54/style.css" />
+    <%--<link href="fonts/font-awesome.css" rel="stylesheet" />--%>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <style type="text/css">
+        @font-face {
+            font-family: 'AlWatanHeadlines-Bold';
+            src: url('../fonts/AlWatanHeadlines-Bold.ttf') format('truetype');
+            font-weight: bold;
+        }
+
+        body , h1 , h2 , h3 ,h4 ,h5 ,h6 ,p  ,ul ,a ,u,i ul,li, ul > li, input{font-family: AlWatanHeadlines-Bold, serif; font-weight:unset}
+    </style>
+    <link href="fonts/font-awesome.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="html front not-logged-in no-sidebars page-node i18n-ar">
+    <form id="form1" runat="server">
+    <!-- Topbar header -->
+        <header class="<% Response.Write(SetInner()); %>">
+            <div class="topbar">
+                <div class="container p-0">
+                    <nav class="navbar navbar-expand-lg  py-0 px-md-0">
+                        <button class="navbar-toggler nav-icon" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </button>
+                        <a class="navbar-brand my-0 ml-auto" href="/ar">
+                            <img src="../view/sites/all/themes/mlsd2019/assets/img/Logo.png" class="d-inline-block align-top w-logo" alt="" />
+                            <img src="../view/sites/all/themes/mlsd2019/assets/img/Logo2.png" class="d-inline-block align-top c-logo" alt="" />
+                        </a>
+                        <div class="collapse navbar-collapse justify-content-md-between" id="navbarNavDropdown">
+                            <ul class="navbar-nav pr-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> الجمعية  <i style="margin-right:5px" class="fa fa-angle-down"></i> </a>
+                                    <div class="dropdown-menu">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class='col-md-6 col-lg-3 col-xl-3 '>
+                                                    <h3 class="heading right">عن الجمعية</h3>
+                                                    <ul>
+                                                        <li>
+                                                            <asp:Label ID="lblAbout" runat="server"></asp:Label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class='col-md-6 col-lg-3 col-xl-3 '>
+                                                    <h3 class="heading right">الرؤية</h3>
+                                                    <ul>
+                                                        <li>
+                                                            <asp:Label ID="lblVision" runat="server"></asp:Label>
+                                                        </li>
+                                                    </ul>
+                                                    <h3 class="heading right">الرسالة</h3>
+                                                    <ul>
+                                                        <li>
+                                                            <asp:Label ID="lblMessage" runat="server"></asp:Label>
+                                                        </li>
+                                                    </ul>
+                                                    <h3 class="heading right">القيم</h3>
+                                                    <ul>
+                                                        <li>
+                                                            <asp:Label ID="lblValus" runat="server"></asp:Label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class='col-md-6 col-lg-3 col-xl-3 '>
+                                                    <h3 class="heading right">الأهدافنا</h3>
+                                                    <ul>
+                                                        <li>
+                                                            <asp:Label ID="lblGoals" runat="server"></asp:Label>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class='  col-md-6 col-lg-3 col-xl-3 '>
+                                                    <h3 class="heading right"></h3>
+                                                    <ul>
+                                                    </ul>
+                                                </div>
+                                                <div class='  col-md-6 col-lg-3 col-xl-3 '>
+                                                    <h3 class="heading right"></h3>
+                                                    <ul>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الخدمات الإلكترونية  <i style="margin-right:5px" class="fa fa-angle-down"></i> </a>
+                                    <div class="dropdown-menu">
+                                        <div class="container">
+                                            <div class="d-flex m-service-header-cont">
+                                                <div class="m-service-header">
+                                                    <a href="#">
+                                                        <span class="icon"><i class="icon_v2 fa fa-user" style="color: #00733a"></i></span>
+                                                        <span>الخدمات الإلكترونية لأعضاء مجلس الإدارة</span>
+                                                    </a>
+                                                </div>
+                                                <div class="m-service-header">
+                                                    <a href="#">
+                                                        <span class="icon"><i class="icon_v2 fa fa-user" style="color: #b70135"></i></span>
+                                                        <span>الخدمات الإلكترونية لأعضاء الجمعية العمومية</span>
+                                                    </a>
+                                                </div>
+                                                <div class="m-service-header">
+                                                    <a href="#">
+                                                        <span class="icon"><i class="icon_v2 fa fa-user" style="color: #f46542"></i></span>
+                                                        <span>الخدمات الإلكترونية للموظفين</span>
+                                                    </a>
+                                                </div>
+                                                <div class="m-service-header">
+                                                    <a href="#">
+                                                        <span class="icon"><i class="icon_v2 fa fa-user" style="color: #0bbcba"></i></span>
+                                                        <span>الخدمات الإلكترونية للمستفيدين</span>
+                                                    </a>
+                                                </div>
+                                                <div class="m-service-header">
+                                                    <a href="#">
+                                                        <span class="icon"><i class="icon_v2 fa fa-user" style="color: #f46542"></i></span>
+                                                        <span>الخدمات الإلكترونية لغير المستفيدين</span>
+                                                    </a>
+                                                </div>
+                                                <div class="m-service-header">
+                                                    <a href="#">
+                                                        <span class="icon"><i class="icon_v2 fa fa-user" style="color: #66a551"></i></span>
+                                                        <span>البوابة الإلكترونية للشفافية والايضاح المالي</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">المركز الإعلامي  <i style="margin-right:5px" class="fa fa-angle-down"></i> </a>
+                                    <div class="dropdown-menu">
+                                        <div class="container">
+                                            <div class="d-flex m-service-header-cont">
+                                                <div class="m-service-header">
+                                                    <a href="PageVideo.aspx">
+                                                        <span class="icon"><i class="icon icon_v1 fa fa-video" style="color: #0bbcba"></i></span>
+                                                        <span>الفيديوهات</span>
+                                                    </a>
+                                                </div>
+                                                <div class="m-service-header">
+                                                    <a href="">
+                                                        <span class="icon"><i class="icon_v1 fa fa-camera" style="color: #66a551"></i></span>
+                                                        <span>البوم الصور</span>
+                                                    </a>
+                                                </div>
+                                                <div class="m-service-header">
+                                                    
+                                                </div>
+                                                <div class="m-service-header">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">الاخبار والفعاليات  <i style="margin-right:5px" class="fa fa-angle-down"></i> </a>
+                                    <div class="dropdown-menu">
+                                        <div class="container">
+                                            <div class="d-flex m-service-header-cont">
+                                                <% 
+                                                    try
+                                                    {
+                                                        Response.Write(FManagementsGetViewF());
+                                                    }
+                                                    catch (Exception)
+                                                    {
+
+                                                    }
+                                                %>
+                                                <div class="m-service-header">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">تواصل معنا  <i style="margin-right:5px" class="fa fa-angle-down"></i> </a>
+                                    <div class="dropdown-menu">
+                                        <div class="container">
+                                            <div class="d-flex m-service-header-cont">
+                                                <div class="m-service-header">
+                                                    <h3 class="heading right">تواصلوا معنا</h3>
+                                                    <ul>
+                                                        <li>
+                                                           * العنوان<br />
+                                                            <a class="link-phone" target="_blank" runat="server" id="IDLocation" data-toggle="tooltip" title="الذهاب للموقع">
+                                                                <asp:Label ID="lblNameOrg" runat="server" ></asp:Label> - المدينة المنوة - مهد الذهب - الصلحانية
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                               * الصندوق البريدي :
+                                                                50580
+                                                        </li>
+                                                        <li>
+                                                               * الرمز البريدي : 
+                                                                41533
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="m-service-header">
+                                                    <ul>
+                                                        <li>
+                                                            <h3 class="heading right">البريد الإلكتروني</h3>
+                                                            
+                                                            <a class="link-site" runat="server" id="IDEmail" data-toggle="tooltip" title="البريد الإلكتروني">
+                                                                <asp:Label ID="lblEmail" runat="server"></asp:Label>
+                                                            </a>
+                                                            <h3 class="heading right">رقم الهاتف</h3>
+                                                            <a class="link-site" runat="server" id="IDPhone" data-toggle="tooltip" title="الهاتف">
+                                                                <asp:Label ID="lblPhone" runat="server"></asp:Label>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="m-service-header">
+                                                <h3 class="heading right">مواقع التواصل الاجتماعي</h3>
+                                                  <div class="d-flex">
+                                                    <ul class="list-inline list-unstyled sm-list  pr-0 d-flex justify-content-center">
+                                                      <li> <a runat="server" id="IDtwitter" title="تويتر" data-toggle="tooltip"> <span class="fab fa-twitter"> </span> </a> </li>
+                                                      <li> <a runat="server" id="IDFacebook" title="فيسبوك" data-toggle="tooltip"> <span class="fab fa-facebook-f"> </span> </a> </li>
+                                                      <li> <a runat="server" id="IDyoutube" title="يوتيوب" data-toggle="tooltip"> <span class="fab fa-youtube"> </span> </a> </li>
+                                                      <li> <a runat="server" id="IDGoogleplus" title="جوجل بلس" data-toggle="tooltip"> <span class="fab fa-google-plus"> </span> </a> </li>
+                                                    </ul>
+                                                  </div>
+                                                </div>
+                                                <div class="m-service-header">
+                                                    <a href="PageContact-Us.aspx" data-toggle="tooltip" title="إترك لنا رسالة">
+                                                        <span class="icon"><i class="icon_v2 fa fa-phone" style="color: #f46542"></i></span>
+                                                        <span>إترك لنا رسالة</span>
+                                                    </a>
+                                                </div>
+                                                <div class="m-service-header">
+                                                    
+                                                </div>
+                                                <div class="m-service-header">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <!-- Language Switcher -->
+                                    <a class="nav-link" href="/en/node">En </a>
+                                    <!-- End Language Switcher -->
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="navbar-nav pr-0 setting-nav">
+                            <li class="nav-item search-item">
+                                <a class="nav-link" data-toggle="collapse" data-target="#search-cont" aria-expanded="false" aria-controls="search-cont">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item setting-item dropdown">
+                                <a class="nav-link">
+                                    <i class="fa fa-desktop"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <div class="font-opt-cont">
+                                        <h3>تغيير حجم الخط</h3>
+                                        <a title="تكبير الخط" class="increase-font access-opt-font " id="plustext">A+ </a>
+                                        <a title="اعادة ضبط الخط" class="opt-noraml-font access-opt-font " id="resettext">A </a>
+                                        <a title="تصغير الخط" class="decrease-font access-opt-font" id="minustext">A- </a>
+                                    </div>
+                                    <div class="color-opt-cont">
+                                        <h3>تباين الألوان</h3>
+                                        <div class="switch-cont invert-switch">
+                                            <span class="switch"></span>
+                                        </div>
+                                    </div>
+                                    <div class="voice-cont-box">
+                                        <h3>الأوامر الصوتية</h3>
+                                        <span id="speak-btn" class="voice-btn" data-toggle="modal" data-target="#voice-cont"><i class="icon_v1  icon-Microphone-2"></i></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item cust-services-item">
+                                <a href="" class="nav-link cust-services btn ">
+                                    <span>
+                                        <asp:Label ID="lblLestName" runat="server" Text="مرحباً بك"></asp:Label>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="collapse header-search-cont" id="search-cont">
+                <div class="card card-body">
+                    <button data-toggle="collapse" data-target="#search-cont" aria-expanded="false" aria-controls="search-cont" class="close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="container px-0">
+                        <div class="form-group  ">
+                            <span class="icon_v3  icon-Search  "></span>
+                            <input type="text" placeholder="اكتب كلمات البحث هنا" class="form-control input-line" id="searchTxt">
+                            <button class="btn btn-primary btn-sm" onclick="searchURL()">بحث</button>
+                        </div>
+                        <p class="help-block">ابحث هنا بكتابة كلمة البحث في الأعلى</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Topbar header -->
+        <script>
+            $("#speak-btn").click(
+              function (event) {
+                  var value = $('#speak-btn').attr('class');
+                  if (value === 'voice-btn:hover') {
+                      $("#speak-btn").removeAttr('data-toggle');
+                  } else if (value === 'voice-btn') {
+                      $("#speak-btn").attr('data-toggle', 'modal');
+                  }
+
+              }
+            );
+        </script>
+
+        <script>
+            var input = document.getElementById("searchTxt");
+            function searchURL() {
+                window.location = window.location.origin + '/ar' + "/PageSearch.aspx?Title=" + input.value;
+            }
+        </script>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+        <div id="footer">
+            <div class="footer  ">
+                <div class="header-footer">
+                    <div class="container p-md-0 ">
+                        <div class="d-flex">
+                            <ul class="list-inline list-unstyled sm-list  pr-0 d-flex justify-content-center">
+                                <li>
+                                    <a runat="server" id="IDtwitter2" title="تويتر" data-toggle="tooltip" target="_blank"><span class='fab fa-twitter'></span></a>
+                                </li>
+                                <li>
+                                    <a runat="server" id="IDFacebook2" title="فيسبوك" data-toggle="tooltip" target="_blank"><span class='fab fa-facebook-f'></span></a>
+                                </li>
+                                <li>
+                                    <a runat="server" id="IDyoutube2" title="يوتيوب" data-toggle="tooltip" target="_blank"><span class='fab fa-youtube'></span></a>
+                                </li>
+                                <li>
+                                    <a runat="server" id="IDGoogleplus2" title="جوجل بلس" data-toggle="tooltip" target="_blank"><span class="fab fa-google-plus"></span></a>
+                                </li>
+                                <li>
+                                    <a href="#" title="خلاصة RSS" data-toggle="tooltip"><span class="fas fa-rss"></span></a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="top-footer">
+                    <div class="container p-md-0">
+                        <div class="row">
+                            <%--<div class="col-sm-6  col-lg-3">
+                                <div class="footer-list-menu">
+                                    <!-- <a href="">سياسة الخصوصية</a> -->
+                                    <a href="">سياسة الخصوصية</a>
+                                    <a href="">الاستخدام وإخلاء المسؤولية</a>
+                                    <a href="">اتفاقية مستوى الخدمة</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="footer-list-menu">
+                                    <a href="">خارطة الموقع</a>
+                                    <a href="">إحصائيات عن زوار الموقع</a>
+                                    <a href="">التنمية المستدامة</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="footer-list-menu">
+                                    <a href="">البيانات المفتوحة</a>
+                                    <a href="">الأهداف الإستراتيجية لبرنامج التحول الوطني</a>
+                                    <a href="">فوائد التسجيل</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="footer-list-menu">
+                                    <a href="">ميثاق العملاء</a>
+                                    <a href="">بوابة سعودي الوطنية</a>
+                                    <a href="">الأسئلة الشائعة</a>
+                                </div>
+                            </div>--%>
+                        </div>
+                    </div>
+                </div>
+                <div class="bot-footer">
+                    <div class="container p-md-0">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="d-flex browsers">
+                                    <span class="v-align-middle p-l-10">
+                                        <i class="fab fa-chrome ml-2 v-align-m"></i>
+                                        <i class="fab fa-firefox ml-2 v-align-m"></i>
+                                        <i class="fab fa-internet-explorer ml-2 v-align-m"></i>
+                                    </span>
+                                    <p>
+                                        هذا الموقع يمكن تصفحه بالشكل المناسب من خلال شاشة 768 كما يدعم انترنت اكسبلورر 9.0 + ، فاير فوكس ، سفاري ، أوبرا ، كروم وكذلك جميع الأجهزة الذكية.             
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="vaild-img">
+
+                                    <a class="thawte-logo" target="_blank" href="https://sealinfo.thawte.com/thawtesplash?form_file=fdf/thawtesplash.fdf&dn=WWW.MLSD.GOV.SA&langlang=en">
+<%--                                        <img class="icon-logo" src="/../view/sites/all/themes/mlsd2019/assets/img/footer-logo/thawte-w.svg" alt="w3c1">
+                                        <img class="icon-logo-hover" src="/../view/sites/all/themes/mlsd2019/assets/img/footer-logo/thawte.svg" alt="w3c1">--%>
+                                        <img class='icon-logo' src='../view/sites/all/themes/mlsd2019/assets/img/Logo.png' alt="w3c1" />
+                                        <img class="icon-logo-hover" src="../view/sites/all/themes/mlsd2019/assets/img/Logo2.png" alt="w3c1" />
+                                    </a>
+
+                                    <a class="wcag1A-logo" target="_blank" href="https://www.w3.org/WAI/WCAG1A-Conformance">
+                                        <img class='icon-logo' src='../view/sites/all/themes/mlsd2019/assets/img/Logo.png' alt="w3c1" />
+                                        <img class="icon-logo-hover" src="../view/sites/all/themes/mlsd2019/assets/img/Logo2.png" alt="w3c1" />
+                                    </a>
+                                    <a class="xhtml-logo" target="_blank" href="https://validator.w3.org/nu/?doc=https://mlsd.gov.sa/">
+                                        <img class='icon-logo' src='../view/sites/all/themes/mlsd2019/assets/img/Logo.png' alt="w3c1" />
+                                        <img class="icon-logo-hover" src="../view/sites/all/themes/mlsd2019/assets/img/Logo2.png" alt="w3c1" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright-cont">
+                    <div class="container p-md-0">
+                        <p class="copyright">
+                            2019 © كافة الحقوق محفوظة لمؤسسة البركة والتنمية الاجتماعية بأرن       
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </form>
+</body>
+</html>

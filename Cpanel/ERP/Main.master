@@ -1,0 +1,313 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Main.master.cs" Inherits="Cpanel_ERP_Main" %>
+<%@ Register Src="~/Cpanel/CAttach/WUCLoding.ascx" TagPrefix="uc1" TagName="WUCLoding" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>لوحة التحكم</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="/ImgSystem/ImgSetting/StartLogo.png" type="image/vnd.microsoft.icon" />
+
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/jquery-2.1.1.min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/bootstrap/js/bootstrap.min.js")%>"></script>
+    <link href="<%=ResolveUrl("~/view/javascript/font-awesome/css/font-awesome.min.css")%>" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/view/javascript/summernote/summernote.css")%>" rel="stylesheet" />
+    
+    <script src="<%=ResolveUrl("~/view/javascript/summernote/summernote.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/summernote/lang/summernote-ar-AR.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/moment.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js")%>"></script>
+
+    <link href="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css")%>" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/view/stylesheet/bootstrap-a.css")%>" rel="stylesheet" media="screen" />
+    <link href="<%=ResolveUrl("~/view/stylesheet/stylesheet-a.css?v=2.2")%>" rel="stylesheet" media="screen" />
+
+    <script src="<%=ResolveUrl("~/view/javascript/common.js")%>"></script>
+
+    <link href="<%=ResolveUrl("~/fonts/font-awesome.css")%>" rel="stylesheet" type="text/css" />
+    <link href="~/Cpanel/GridView.css?v=2.2" rel="stylesheet" type="text/css" />
+    <link href="/Themes/Ar_Qader/Content/ColorArn.css" rel="stylesheet" />
+    <style type="text/css">
+        body, h1, h2, h3, h4, h5, h6, p, ul, a, input, title {
+            font-family: 'Droid Arabic Kufi', serif;
+        }
+
+        @media screen and (min-width: 768px) {
+            .FoDesktop {
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .FoDesktop {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="container">
+            <header id="header" class="navbar navbar-static-top ColorHome">
+                <div class="navbar-header">
+                    <a type="button" id="button-menu" class="pull-left"><i class="fa fa-indent fa-lg"></i></a>
+                    <a href="<%=ResolveUrl("~/Cpanel/ERP/") %>" class="navbar-brand FoDesktop">الموارد البشرية
+                        <%--<img src="../view/image/logo.png" id="ImgHome" runat="server" alt="لوحة التحكم" title="لوحة التحكم" width="123" height="23" />--%>
+                    </a>
+                </div>
+                <ul class="nav pull-right">
+                    <li><a href="##" class="FoDesktop" onclick="history.go(-1); return false;"><span class="hidden-xs hidden-sm hidden-md">رجوع</span> <i class="fa fa-share fa-lg"></i></a></li>
+                    <li runat="server" id="IDHRM" visible="false" class="BackgroundAll">
+                        <a href="/Cpanel/ERP/HRAndPayRoll/Admin/">
+                            <span class="label label-danger pull-left">
+                                <asp:Label ID="lblNotifications" runat="server" Text="0"></asp:Label></span>
+                            <span class="hidden-xs hidden-sm hidden-md" style="color:#F0F0F0;">نظام الموظف <i class="fa fa-connectdevelop fa-lg"></i></span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="hidden-xs hidden-sm hidden-md">حسابي</span> <i class="fa fa-user fa-lg"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-header"><i class="fa fa-file fa-lg"></i>بياناتي </li>
+                            <li><a href="/Cpanel/CHome/PageMyAccount.aspx">تعديل بياناتي</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header"><i class="fa fa-lock fa-lg"></i>كلمة المرور </li>
+                            <li><a href="/Cpanel/CHome/PageMyPassword.aspx">تعديل كلمة المرور</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<%=ResolveUrl("~/Cpanel/ERP/LogOut.aspx")%>"><span class="hidden-xs hidden-sm hidden-md">خروج</span> <i class="fa fa-sign-out fa-lg"></i></a></li>
+                </ul>
+            </header>
+            <nav id="column-left">
+                <div id="profile">
+                    <div>
+                        <a href="<%=ResolveUrl("~/Cpanel/ERP/") %>" title="الرئيسية">
+                            <img src="<%=ResolveUrl("~/Img/Logo.png")%>" width="65" /></a>
+                        <%--<i class="fa fa-opencart"></i>--%>
+                    </div>
+                    <div>
+                        <h4><asp:Label ID="lblFirstName" runat="server" Font-Size="12px"></asp:Label></h4>
+                        <small>
+                            <asp:Label ID="lblLestName" runat="server" Text="مرحباً بك"></asp:Label>
+                        </small>
+                    </div>
+                </div>
+                <ul id="menu">
+                    <li id="menu-dashboard">
+                        <a href="<%=ResolveUrl("~/Cpanel/ERP/")%>"><i class="fa fa-home fw"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li id="menu-system">
+                        <a class="parent" id="pnlSetting" runat="server" visible="false"><i class="fa fa-dashboard fw"></i><span>إعدادات النظام</span></a>
+                        <ul style="font-size: 12px">
+                            <li><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageDepartment.aspx")%>">إدارات المؤسسة</a></li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageEmployeeType.aspx")%>">أنواع طبيعة العمل</a></li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageEmployeeGrade.aspx")%>">أنواع فصائل الدم</a></li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageDesignation.aspx")%>">أنواع الوظائف</a></li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageShift.aspx")%>">أنواع أوقات الدوام</a></li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageAllowance.aspx")%>">البدلات ( العلاوات)</a></li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageDeduction.aspx")%>"> أنواع المستقطع من الراتب</a></li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageLeaveCategory.aspx")%>"> أنواع الإجازات</a></li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageAccountables.aspx")%>"> أنواع المساءلات</a></li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageHoliday.aspx")%>"> أيام الإجازات</a></li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageEducation.aspx")%>"> أنواع التعليم</a></li>
+
+                        </ul>
+                    </li>
+                    <li id="menu-Emp">
+                        <a class="parent" id="pnlEmpDetails" runat="server" visible="false"><i class="fa fa-users fw"></i><span>إدارة الموظفين</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpDetailsAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageEmployeeAdd.aspx")%>">إضافة موظف</a></li>
+                            <li runat="server" id="pnlEmpDetailsView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageEmployee.aspx")%>">بيانات الموظفين</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Emp-Salaries-Add">
+                        <a class="parent" id="pnlEmpSalaery" runat="server" visible="false"><i class="fa fa-money fw"></i><span>إضافة الرواتب للموظفين</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpSalaeryAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageEmployeeSalaryAdd.aspx")%>">إضافة راتب للموظف</a></li>
+                            <li runat="server" id="pnlEmpSalaeryView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Masters/PageEmployeeSalary.aspx")%>">بيانات الرواتب</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-JobAssignment">
+                        <a class="parent" id="pnlEmpJobAssignment" runat="server" visible="false"><i class="fa fa-joomla fw"></i><span>نظام مهام العمل</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpJobAssignmentAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeJobAssignmentAdd.aspx")%>">إضافة مهمة عمل</a></li>
+                            <li runat="server" id="pnlEmpJobAssignmentModerAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeJobAssignmentsByManager.aspx")%>">موافقة المشرف المختص</a></li>
+                            <li runat="server" id="pnlEmpJobAssignmentRaeesAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeJobAssignmentsByRaees.aspx")%>">رئيس مجلس الادارة</a></li>
+                            <li runat="server" id="pnlEmpJobAssignmentView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeJobAssignments.aspx")%>">بيانات المهام</a></li>
+                            <li runat="server" id="pnlEmpJobAssignmentDetailsView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeJobAssignmentByView.aspx")%>">تفاصيل مهمة عمل</a></li>
+                            <li runat="server" id="pnlEmpJobAssignmentList" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeJobAssignmentsList.aspx")%>">ملخص مهام الموظفين</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Emp-Livel">
+                        <a class="parent" id="pnlEmpLeaveCategory" runat="server" visible="true"><i class="fa fa-clock-o fw"></i><span>نظام الإجازات</span></a>
+                        <ul style="font-size: 12px">
+                            <li id="menu-Compensatory">
+                                <a class="parent" id="pnlEmpCompensatory" runat="server" visible="false"><i class="fa fa-plus fw"></i> <span>الإجازات التعويضية</span></a>
+                                <ul style="font-size: 12px">
+                                    <li runat="server" id="pnlEmpCompensatoryAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeCompensatoryAdd.aspx")%>">إضافة إجازة تعويضية</a></li>
+                                    <li runat="server" id="pnlEmpCompensatoryView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeCompensatories.aspx")%>">بيانات الإجازات التعويضية</a></li>
+                                </ul>
+                            </li>
+                            <li runat="server" id="pnlEmpLeaveCategoryAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLeaveCategoryAdd.aspx")%>">إضافة إجازة للموظف</a></li>
+                            <li id="menu-Allow">
+                                <a class="parent" id="A9" runat="server" visible="true"><i class="fa fa-plus fw"></i> <span>موافقة الاجازات</span></a>
+                                <ul style="font-size: 12px">
+                                    <li runat="server" id="Li17" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLeaveCategoryByAdmin.aspx")%>">موافقة الموظف</a></li>
+                                    <li runat="server" id="pnlEmpLeaveCategoryModerAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLeaveCategoryByManager.aspx")%>">موافقة المشرف المختص</a></li>
+                                    <li runat="server" id="pnlEmpLeaveCategoryRaeesAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLeaveCategoryByRaees.aspx")%>">موافقة رئيس الشؤون</a></li>
+                                </ul>
+                            </li>
+                            <li runat="server" id="pnlEmpLeaveCategoryView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLeaveCategory.aspx")%>">بيانات الإجازات العامة</a></li>
+                            <li runat="server" id="pnlEmpLeaveCategoryDetailsView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLeaveCategoryByView.aspx")%>">تفاصيل إجازة الموظف</a></li>
+                            <li runat="server" id="pnlEmpLeaveCategoryListView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLeaveCategoryList.aspx")%>">رصيد الإجازات</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Permission">
+                        <a class="parent" id="pnlEmpPermission" runat="server" visible="false"><i class="fa fa-joomla fw"></i><span>نظام الإستئذان</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpPermissionAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeePermissionAdd.aspx")%>">إضافة إستئذان</a></li>
+                            <%--<li runat="server" id="Li53" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeJobAssignmentsByManager.aspx")%>">موافقة المشرف المختص</a></li>--%>
+                            <li runat="server" id="pnlEmpPermissionByRaees" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeePermissionByRaees.aspx")%>">موافقة المشرف المختص</a></li>
+                            <li runat="server" id="pnlEmpPermissionAll" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeePermission.aspx")%>">بيانات الإستئذانات</a></li>
+                            <li runat="server" id="pnlEmpPermissionView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeePermissionByView.aspx")%>">تفاصيل إستئذان</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Emp-Accountable">
+                        <a class="parent" id="pnlEmpAccountable" runat="server" visible="false"><i class="fa fa-file fw"></i><span>نظام المساءلات</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpAccountableAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeAccountableAdd.aspx")%>">إضافة مساءلة لموظف</a></li>
+                            <li runat="server" id="pnlEmpAccountableRaeesAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeAccountablesByRaees.aspx")%>">موافقة المشرف المختص</a></li>
+                            <li runat="server" id="pnlEmpAccountableView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeAccountables.aspx")%>">جميع بيانات المساءلات</a></li>
+                            <li runat="server" id="pnlEmpAccountableDetailsView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeAccountableByView.aspx")%>">تفاصيل بيانات مساءلة</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Emp-Warning">
+                        <a class="parent" id="pnlEmpWarning" runat="server" visible="false"><i class="fa fa-warning fw"></i><span>نظام الإنذارات</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpWarningAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeWarningAdd.aspx")%>">إضافة إنذار لموظف</a></li>
+                            <li runat="server" id="pnlEmpWarningRaeesAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeWarningByRaees.aspx")%>">موافقة المشرف المختص</a></li>
+                            <li runat="server" id="pnlEmpWarningView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeWarning.aspx")%>">جميع بيانات الإنذارات</a></li>
+                            <li runat="server" id="pnlEmpWarningDetailsView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeWarningByView.aspx")%>">تفاصيل بيانات إنذار</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Emp-Resolved">
+                        <a class="parent" id="pnlEmpResolved" runat="server" visible="false"><i class="fa fa-edit fw"></i><span>نظام الحسومات</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpResolvedAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeResolvedAdd.aspx")%>">إضافة حسم لموظف</a></li>
+                            <li runat="server" id="pnlEmpResolvedModerAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeResolvedsByManager.aspx")%>">موافقة المشرف المختص</a></li>
+                            <li runat="server" id="pnlEmpResolvedRaeesAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeResolvedsByRaees.aspx")%>">موافقة رئيس الشؤون</a></li>
+                            <li runat="server" id="pnlEmpResolvedView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeResolveds.aspx")%>">جميع بيانات الحسومات</a></li>
+                            <li runat="server" id="pnlEmpResolvedDetailsView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeResolvedByView.aspx")%>">تفاصيل بيانات حسم</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Emp-Loans">
+                        <a class="parent" id="pnlEmpLoan" runat="server" visible="false"><i class="fa fa-magnet fw"></i><span>نظام القروض / السلفة</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpLoanAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLoanAdd.aspx")%>">إضافة قرض لموظف</a></li>
+                            <li runat="server" id="pnlEmpLoanRepaymentAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLoanRepayment.aspx")%>">تسديد قرض لموظف</a></li>
+                            <li runat="server" id="pnlEmpLoanModerAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLoansByManager.aspx")%>">موافقة المشرف المختص</a></li>
+                            <li runat="server" id="pnlEmpLoanRaeesAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLoansByRaees.aspx")%>">موافقة رئيس الشؤون</a></li>
+                            <li runat="server" id="pnlEmpLoanView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLoans.aspx")%>">جميع بيانات القروض</a></li>
+                            <li runat="server" id="pnlEmpLoanDetailsView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeLoanByView.aspx")%>">تفاصيل قرض الموظف</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Emp-Mandate">
+                        <a class="parent" id="pnlEmpMandate" runat="server" visible="false"><i class="fa fa-calendar fw"></i><span>نظام الإنتدابات</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpMandateAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeMandateAdd.aspx")%>">إضافة إنتداب لموظف</a></li>
+                            <%--<li runat="server" id="Li28" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeMandatesByManager.aspx")%>">موافقة مدير الجمعية</a></li>--%>
+                            <li runat="server" id="pnlEmpMandateModerAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeMandatesByRaees.aspx")%>">موافقة المشرف المختص</a></li>
+                            <li runat="server" id="pnlEmpMandateView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeMandates.aspx")%>">جميع بيانات الإنتدابات</a></li>
+                            <li runat="server" id="pnlEmpMandateDetailsView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeMandateByView.aspx")%>">تفاصيل إنتداب الموظف</a></li>
+                            <li runat="server" id="pnlEmpMandateListView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeMandateList.aspx")%>">مسير إنتداب الموظفين</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Emp-Overtime">
+                        <a class="parent" id="pnlEmpOvertime" runat="server" visible="false"><i class="fa fa-calculator fw"></i><span>نظام العمل الإضافي</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpOvertimeAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeOvertimeAdd.aspx")%>">إضافة قرار عمل إضافي </a></li>
+                            <%--<li runat="server" id="Li33" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeOvertimesByManager.aspx")%>">موافقة مدير الجمعية</a></li>--%>
+                            <li runat="server" id="pnlEmpOvertimeModerAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeOvertimesByRaees.aspx")%>">موافقة المشرف المختص</a></li>
+                            <li runat="server" id="pnlEmpOvertimeView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeOvertimes.aspx")%>">جميع بيانات القرارات</a></li>
+                            <li runat="server" id="pnlEmpOvertimeDetailsView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeOvertimeByView.aspx")%>">تفاصيل قرار عمل إضافي لموظف</a></li>
+                            <li runat="server" id="pnlEmpOvertimeListView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeOvertimeList.aspx")%>">مسير العمل الإضافي</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Emp-Bonuses">
+                        <a class="parent" id="pnlEmpBonuses" runat="server" visible="false"><i class="fa fa-money fw"></i><span>نظام المكافآت</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpBonusesAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeBonusesAdd.aspx")%>">إضافة قرار مكافأة </a></li>
+                            <%--<li runat="server" id="Li33" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeOvertimesByManager.aspx")%>">موافقة مدير الجمعية</a></li>--%>
+                            <li runat="server" id="pnlEmpBonusesModerAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeBonusesByRaees.aspx")%>">موافقة المشرف المختص</a></li>
+                            <li runat="server" id="pnlEmpBonusesView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeBonuses.aspx")%>">جميع بيانات القرارات</a></li>
+                            <li runat="server" id="pnlEmpBonusesDetailsView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeBonusesByView.aspx")%>">تفاصيل قرار مكافأة لموظف</a></li>
+                            <li runat="server" id="pnlEmpBonusesListView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeBonusesList.aspx")%>">مسير المكافآت</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Emp-Attendance">
+                        <a class="parent" id="pnlEmpAttendanceEntry" runat="server" visible="false"><i class="fa fa-check-square fw"></i><span>نظام الحضور</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpAttendanceEntryAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeAttendanceEntry.aspx")%>">إضافة سجل الحضور</a></li>
+                            <li runat="server" id="pnlEmpAttendanceEntryView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeAttendanceList.aspx")%>">كشف الحضور لموظف</a></li>
+                            <li runat="server" id="pnlEmpAttendanceEntryAllView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeAttendanceListAll.aspx")%>">كشف الحضور للموظفين</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Emp-Salaries">
+                        <a class="parent" id="pnlEmpAddSalary" runat="server" visible="false"><i class="fa fa-dashboard fw"></i><span>تسليم الرواتب</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="pnlEmpAddSalaryAdd" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeSalaryList.aspx")%>">تسليم الرواتب للموظفين</a></li>
+                            <li runat="server" id="pnlEmpAddSalaryView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeSalaryByEmp.aspx")%>">كشف رواتب موظف</a></li>
+                            <li runat="server" id="pnlEmpAddSalaryListView" visible="false"><a href="<%=ResolveUrl("~/Cpanel/ERP/HRAndPayRoll/Transactions/PageEmployeeSalaryByAll.aspx")%>">مسير الرواتب</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-ITSupport"><a href="<%=ResolveUrl("~/ITSupport/HRM/")%>" target="_blank"><i class="fa fa-desktop fw"></i><span>الدعم الفني</span></a></li>
+                    <li id="menu-Back"><a href="<%=ResolveUrl("~/Cpanel/CHome/")%>"><i class="fa fa-share fw"></i><span>رجوع للبوابة الإلكتروني</span></a></li>
+                    <li id="menu-Out"><a href="<%=ResolveUrl("~/Cpanel/ERP/LogOut.aspx")%>"><i class="fa fa-sign-out fw"></i><span>خروج</span></a></li>
+                </ul>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+            <uc1:WUCLoding runat="server" ID="WUCLoding" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <footer id="footer">
+                جميع الحقوق محفوظة
+            <a runat="server" id="IDSite" target="_blank">
+                <asp:Label ID="lblSite" runat="server" Text="جمعية البر والخدمات الإجتماعية بأرن"></asp:Label>
+            </a>&copy;
+                <asp:Label ID="lblYears" runat="server"></asp:Label>
+            </footer>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </form>
+    <style type="text/css">
+        .modal-open {
+            overflow: hidden
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+            outline: 0;
+            background-color: hsla(120, 3%, 82%, 0.30);
+        }
+    </style>
+</body>
+</html>

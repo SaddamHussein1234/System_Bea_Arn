@@ -1,0 +1,182 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="CRM_Main.master.cs" Inherits="Cpanel_ERP_CRM_CRM_Main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>لوحة التحكم</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="/ImgSystem/ImgSetting/StartLogo.png" type="image/vnd.microsoft.icon" />
+
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/jquery-2.1.1.min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/bootstrap/js/bootstrap.min.js")%>"></script>
+    <link href="<%=ResolveUrl("~/view/javascript/font-awesome/css/font-awesome.min.css")%>" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/view/javascript/summernote/summernote.css")%>" rel="stylesheet" />
+    
+    <script src="<%=ResolveUrl("~/view/javascript/summernote/summernote.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/summernote/lang/summernote-ar-AR.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/moment.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js")%>"></script>
+
+    <link href="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css")%>" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/view/stylesheet/bootstrap-a.css")%>" rel="stylesheet" media="screen" />
+    <link href="<%=ResolveUrl("~/view/stylesheet/stylesheet-a.css?v=2.2")%>" rel="stylesheet" media="screen" />
+
+    <script src="<%=ResolveUrl("~/view/javascript/common.js")%>"></script>
+
+    <link href="<%=ResolveUrl("~/fonts/font-awesome.css")%>" rel="stylesheet" type="text/css" />
+    <link href="~/Cpanel/GridView.css?v=2.2" rel="stylesheet" type="text/css" />
+    <link href="/Themes/Ar_Qader/Content/ColorArn.css" rel="stylesheet" />
+    <style type="text/css">
+        body, h1, h2, h3, h4, h5, h6, p, ul, a, input, title {
+            font-family: 'Droid Arabic Kufi', serif;
+        }
+
+        @media screen and (min-width: 768px) {
+            .FoDesktop {
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .FoDesktop {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="container">
+            <header id="header" class="navbar navbar-static-top ColorHome">
+                <div class="navbar-header">
+                    <a type="button" id="button-menu" class="pull-left"><i class="fa fa-indent fa-lg"></i></a>
+                    <a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/") %>" class="navbar-brand FoDesktop">نظام متابعة الداعمين
+                        <%--<img src="../view/image/logo.png" id="ImgHome" runat="server" alt="لوحة التحكم" title="لوحة التحكم" width="123" height="23" />--%>
+                    </a>
+
+                </div>
+                <ul class="nav pull-right">
+                    <li><a href="##" class="FoDesktop" onclick="history.go(-1); return false;"><span class="hidden-xs hidden-sm hidden-md">رجوع</span> <i class="fa fa-share fa-lg"></i></a></li>
+                    <li runat="server" id="IDHRM" visible="false" class="BackgroundAll">
+                        <a href="/Cpanel/ERP/HRAndPayRoll/Admin/">
+                            <span class="label label-danger pull-left">
+                                <asp:Label ID="lblNotifications" runat="server" Text="0"></asp:Label></span>
+                            <span class="hidden-xs hidden-sm hidden-md" style="color:#F0F0F0;">نظام الموظف <i class="fa fa-connectdevelop fa-lg"></i></span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="hidden-xs hidden-sm hidden-md">حسابي</span> <i class="fa fa-user fa-lg"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-header"><i class="fa fa-file fa-lg"></i> بياناتي </li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/CHome/PageMyAccount.aspx")%>">تعديل بياناتي</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header"><i class="fa fa-lock fa-lg"></i> كلمة المرور </li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/CHome/PageMyPassword.aspx")%>">تعديل كلمة المرور</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<%=ResolveUrl("~/Cpanel/ERP/LogOut.aspx")%>"><span class="hidden-xs hidden-sm hidden-md">خروج</span> <i class="fa fa-sign-out fa-lg"></i></a></li>
+                </ul>
+            </header>
+            <nav id="column-left">
+                <div id="profile">
+                    <div>
+                        <a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/") %>" title="الرئيسية">
+                            <img src="<%=ResolveUrl("~/Img/Logo.png")%>" width="65" /></a>
+                        <%--<i class="fa fa-opencart"></i>--%>
+                    </div>
+                    <div>
+                        <h4><asp:Label ID="lblFirstName" runat="server" Font-Size="12px"></asp:Label></h4>
+                        <small>
+                            <asp:Label ID="lblLestName" runat="server" Text="مرحباً بك"></asp:Label>
+                        </small>
+                    </div>
+                </div>
+                <ul id="menu">
+                    <li id="menu-dashboard">
+                        <a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/")%>"><i class="fa fa-home fw"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li id="menu-system">
+                        <a class="parent" id="pnlSystem" runat="server" visible="true"><i class="fa fa-dashboard fw"></i><span>إعدادات النظام</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="Li0" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageSetting/PageCompanyType.aspx")%>">أنواع شركات الدعم</a></li>                            
+                        </ul>
+                    </li>
+                    <li id="menu-Emp">
+                        <a class="parent" id="A1" runat="server" visible="true"><i class="fa fa-users fw"></i><span>إدارة الداعمين</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="Li10" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageCompany/PageCompanyAdd.aspx")%>">إضافة داعم</a></li>
+                            <li runat="server" id="Li11" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageCompany/PageCompany.aspx")%>">بيانات الداعمين</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Comp"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageCompany/PageCompanyTricker.aspx")%>"><i class="fa fa-hospital-o fw"></i><span>شركات تابعتها هذا الأسبوع</span></a></li>
+                    <li id="menu-Remamber">
+                        <a class="parent" id="pnlRemamber" runat="server" visible="true"><i class="fa fa-envelope fw"></i><span>إدارة رسائل التذكير </span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="Li1" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageRemamber/PageRemamberAdd.aspx")%>">إضافة تذكير</a></li>
+                            <li runat="server" id="Li2" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageRemamber/PageRemamber.aspx")%>">رسائل التذكير</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Kind_Support">
+                        <a class="parent" id="A2" runat="server" visible="true"><i class="fa fa-cart-plus fw"></i><span>إدارة الدعم العيني </span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="Li3" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageKind_Support/PageKind_SupportAdd.aspx")%>">إضافة فاتورة</a></li>
+                            <li runat="server" id="Li4" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageKind_Support/PageKind_Support.aspx")%>">متابعة الداعمين</a></li>
+                            <li runat="server" id="Li40" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageKind_Support/PageKind_SupportByDate.aspx")%>">فواتير الدعم العيني</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Cash_Support">
+                        <a class="parent" id="A3" runat="server" visible="true"><i class="fa fa-money fw"></i><span>إدارة الدعم النقدي </span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="Li5" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageCash_Support/PageCash_SupportAdd.aspx")%>">إضافة فاتورة</a></li>
+                            <li runat="server" id="Li6" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageCash_Support/PageCash_Support.aspx")%>">متابعة الداعمين</a></li>
+                            <li runat="server" id="Li7" visible="true"><a href="<%=ResolveUrl("~/Cpanel/ERP/CRM/PageCash_Support/PageCash_SupportByDate.aspx")%>">فواتير الدعم النقدي</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-ITSupport"><a href="<%=ResolveUrl("~/ITSupport/")%>" target="_blank"><i class="fa fa-desktop fw"></i><span>الدعم الفني</span></a></li>
+                    <li id="menu-Back"><a href="<%=ResolveUrl("~/Cpanel/CHome/")%>"><i class="fa fa-share fw"></i><span>رجوع للبوابة الإلكتروني</span></a></li>
+                    <li id="menu-Out"><a href="<%=ResolveUrl("~/Cpanel/ERP/LogOut.aspx")%>"><i class="fa fa-sign-out fw"></i><span>خروج</span></a></li>
+                </ul>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+            <div class="loading2" align="center" id="lodi">
+                <div>
+                    <img src="<%=ResolveUrl("~/Img/LogoNew.png")%>" width="200" style="background-color: #349301; padding: 5px; border-radius: 4px" />
+                    <br />
+                    <span style="background-color: #349301; padding: 5px; border-radius: 4px">يرجى الإنتظار , جاري تنفيذ المهام
+                        <asp:LinkButton ID="LBRefresh" runat="server" OnClick="LBRefresh_Click">
+                            <i class="fa fa-refresh"></i>
+                        </asp:LinkButton>
+                    </span><br />
+                    <br />
+                    <img src="<%=ResolveUrl("~/Cpanel/loader.gif")%>" alt="" />
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <footer id="footer">
+                جميع الحقوق محفوظة
+            <a runat="server" id="IDSite" target="_blank">
+                <asp:Label ID="lblSite" runat="server" Text="جمعية البر والخدمات الإجتماعية بأرن"></asp:Label>
+            </a>&copy;
+                <asp:Label ID="lblYears" runat="server"></asp:Label>
+            </footer>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+
+
+    </form>
+</body>
+</html>

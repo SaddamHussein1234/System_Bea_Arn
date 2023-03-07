@@ -1,0 +1,386 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPVillage.master.cs" Inherits="CResearchers_CPVillage_MPVillage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>لوحة التحكم</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="../../ImgSystem/ImgSetting/StartLogo.png" type="image/vnd.microsoft.icon" />
+    <script type="text/javascript" src="../../view/javascript/jquery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../../view/javascript/bootstrap/js/bootstrap.min.js"></script>
+    <link href="../../view/javascript/font-awesome/css/font-awesome.min.css" type="text/css"
+        rel="stylesheet" />
+    <link href="../../view/javascript/summernote/summernote.css" rel="stylesheet" />
+    <script type="text/javascript" src="../../view/javascript/summernote/summernote.js"></script>
+    <script src="../../view/javascript/summernote/lang/summernote-ar-AR.js"></script>
+    <script src="../../view/javascript/jquery/datetimepicker/moment.js" type="text/javascript"></script>
+    <script src="../../view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js"
+        type="text/javascript"></script>
+    <link href="../../view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css"
+        type="text/css" rel="stylesheet" media="screen" />
+    <link href="../../view/stylesheet/bootstrap-a.css" rel="stylesheet" media="screen" />
+    <link type="text/css" href="../../view/stylesheet/stylesheet-a.css" rel="stylesheet" media="screen" />
+    <script src="../../view/javascript/common.js" type="text/javascript"></script>
+    <link href="../../font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="../../fonts/font-awesome.css" rel="stylesheet" />
+    <style type="text/css">
+        body, h1, h2, h3, h4, h5, h6, p, ul, a, input {
+            font-family: 'Droid Arabic Kufi', serif;
+        }
+
+        @media screen and (min-width: 768px) {
+            .FoDesktop {
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .FoDesktop {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="container">
+            <header id="header" class="navbar navbar-static-top ColorHome">
+                <div class="navbar-header">
+                    <a type="button" id="button-menu" class="pull-left"><i class="fa fa-indent fa-lg"></i></a>
+                    <a href="Default.aspx" class="navbar-brand FoDesktop">لوحة تحكم الباحث
+                        <%--<img src="../view/image/logo.png" id="ImgHome" runat="server" alt="لوحة التحكم" title="لوحة التحكم" width="123" height="23" />--%>
+                    </a>
+                </div>
+                <ul class="nav pull-right">
+                    <li><a href="##" class="FoDesktop" onclick="history.go(-1); return false;"><span class="hidden-xs hidden-sm hidden-md">رجوع</span> <i class="fa fa-share fa-lg"></i></a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="label label-danger pull-left">
+                                <asp:Label ID="lblCountNotReed2" runat="server" Text="0"></asp:Label></span>
+                            <span class="hidden-xs hidden-sm hidden-md">إشعارات</span> <i class="fa fa-bell fa-lg"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right alerts-dropdown">
+                            <%--<li class="dropdown-header">الرسائل</li>
+                            <li><a href="PageMessage.aspx" style="display: block; overflow: auto;">
+                                <span class="label label-warning pull-right">
+                                    <asp:Label ID="lblCountNotReed" runat="server" Text="0"></asp:Label></span>لم تقرأ</a>
+                            </li>
+                            <li><a href="PageMessage.aspx">
+                                <span class="label label-success pull-right">
+                                    <asp:Label ID="lblCount" runat="server" Text="0"></asp:Label></span>جميع الرسائل</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">الاعضاء</li>
+                            <li><a href="PageUserNewsAdmin.aspx">
+                                <span class="label label-success pull-right">
+                                    <asp:Label ID="lblCountAdmin" runat="server" Text="0"></asp:Label></span>الاعضاء المشرفين</a>
+                            </li>
+                            <li><a href="PageUserNewsBlock.aspx">
+                                <span class="label label-danger pull-right">
+                                    <asp:Label ID="lblCountBlock" runat="server" Text="0"></asp:Label></span>الاعضاء المحضورين</a></li>
+                            <li><a href="PageUserNewsActive.aspx">
+                                <span class="label label-danger pull-right">
+                                    <asp:Label ID="lblCountActive" runat="server" Text="0"></asp:Label></span>جميع الاعضاء</a></li>--%>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="hidden-xs hidden-sm hidden-md">حسابي</span> <i class="fa fa-user fa-lg"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-header"><i class="fa fa-file fa-lg"></i>بياناتي </li>
+                            <li><a href="CHome/PageMyAccount.aspx">تعديل بياناتي</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header"><i class="fa fa-lock fa-lg"></i>كلمة المرور </li>
+                            <li><a href="CHome/PageMyPassword.aspx">تعديل كلمة المرور</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../LogOut.aspx"><span class="hidden-xs hidden-sm hidden-md">خروج</span> <i class="fa fa-sign-out fa-lg"></i></a></li>
+                </ul>
+            </header>
+            <nav id="column-left" style="height: 1500px">
+                <div id="profile">
+                    <div>
+                        <a href="Default.aspx" title="الرئيسية">
+                            <img src="../../Img/Logo.png" width="65" />
+                        </a>
+                    </div>
+                    <div>
+                        <h4>
+                            <asp:Label ID="lblFirstName" runat="server"></asp:Label></h4>
+                        <small>
+                            <asp:Label ID="lblLestName" runat="server" Text="مرحباً بك"></asp:Label>
+                        </small>
+                    </div>
+                </div>
+                <ul id="menu">
+                    <li id="menu-dashboard">
+                        <a href="Default.aspx"><i class="fa fa-home fw"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li id="menu-customer">
+                        <a class="parent" id="pnlMostafeed" runat="server" visible="false"><i class="fa fa-users fw"></i><span>إدارة المستفيدين</span> <span class="label label-important" style="background-color: #c70606">
+                            <asp:Label ID="lblNoticeMostafeed" runat="server" Text="0"></asp:Label>
+                            <i class="fa fa-bell" style="font-size: 11px"></i></span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDAddBeneficiary" visible="false"><a href="PageBeneficiaryAdd.aspx">إضافة مستفيد</a></li>
+                            <li runat="server" id="IDBeneficiaryByModer" visible="false"><a href="PageBeneficiaryByModer.aspx">موافقة المدير <span class="label label-important" style="background-color: #c70606">
+                                <asp:Label ID="lblMostafeedByModer" runat="server" Text="0"></asp:Label></span></a></li>
+                            <li runat="server" id="IDBeneficiaryByRaeesAlLagnah" visible="false"><a href="PageBeneficiaryByRaeesAlLagnah.aspx">موافقة رئيس اللجنة <span class="label label-important" style="background-color: #c70606">
+                                <asp:Label ID="lblMostafeedByRaeesAllagnah" runat="server" Text="0"></asp:Label></span></a></li>
+                            <li runat="server" id="IDBeneficiaryByRaeesAlMaglis" visible="false"><a href="PageBeneficiaryByRaeesAlMaglis.aspx">موافقة رئيس المجلس <span class="label label-important" style="background-color: #c70606">
+                                <asp:Label ID="lblMostafeedByRaeesMaglisAlEdara" runat="server" Text="0"></asp:Label></span></a></li>
+                            <li runat="server" id="IDBeneficiaryBySearch" visible="false"><a href="PageBeneficiaryBySearch.aspx">بيانات المستفيدين</a></li>
+                            <li runat="server" id="IDBeneficiaryByView" visible="false"><a href="PageBeneficiaryByView.aspx">إستمارة المستفيدين</a></li>
+                            <li runat="server" id="IDBeneficiaryAddBoys" visible="false"><a href="PageBeneficiaryAddBoys.aspx">معلومات أفراد الاسرة</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-Statistic">
+                        <a class="parent" id="pnlMostafeedStatistic" runat="server" visible="false"><i class="fa fa-cc-discover fw"></i><span>إحصائية المستفيدين</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDBeneficiaryBySearchComprehensive" visible="false"><a href="PageBeneficiaryBySearchComprehensive.aspx">بحث شامل عن المستفيدين</a></li>
+                            <li runat="server" id="IDBeneficiaryBySearchBoysComprehensive" visible="false"><a href="PageBeneficiaryBySearchBoysComprehensive.aspx">بحث شامل عن أبناء المستفيدين</a></li>
+                            <li runat="server" id="IDBeneficiaryStatistic" visible="false"><a href="PageBeneficiaryStatistic.aspx">حسب الدخل الشهري</a></li>
+                            <li runat="server" id="IDBeneficiarySourceOfIncome" visible="false"><a href="PageBeneficiarySourceOfIncome.aspx">حسب مصدر الدخل</a></li>
+                            <li runat="server" id="IDBeneficiaryFamliyCases" visible="false"><a href="PageBeneficiaryFamliyCases.aspx">حسب حالات الاُسر</a></li>
+                            <li runat="server" id="IDBeneficiaryAccommodationType" visible="false"><a href="PageBeneficiaryAccommodationType.aspx">حسب نوع السكن</a></li>
+                            <li runat="server" id="IDBeneficiaryHousingStatus" visible="false"><a href="PageBeneficiaryHousingStatus.aspx">حسب حالة المسكن</a></li>
+                            <li runat="server" id="IDBeneficiaryOrphans" visible="false"><a href="PageBeneficiaryOrphans.aspx">حسب الايتام</a></li>
+                            <li runat="server" id="IDEducationalSituations" visible="false"><a href="PageBeneficiaryEducationalSituations.aspx">حسب الحالات التعليمية</a></li>
+                            <li runat="server" id="IDMaleAndFemale" visible="false"><a href="PageBeneficiaryMaleAndFemale.aspx">حسب الذكور والإناث</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-Bahth">
+                        <a class="parent" id="pnlSearchStatus" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>بحث حالة</span>
+                            <span class="label label-important" style="background-color: #c70606">
+                                <asp:Label ID="lblNoticeSearchStatus" runat="server" Text="0"></asp:Label>
+                                <i class="fa fa-bell" style="font-size: 11px"></i></span>
+                        </a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDSearchStatusAdd" visible="false"><a href="PageSearchStatusAdd.aspx">إضافة بحث حالة</a></li>
+                            <li runat="server" id="IDSearchStatus" visible="false"><a href="PageSearchStatus.aspx">قائمة بحث الحالات</a></li>
+                            <li runat="server" id="IDSearchStatusManager" visible="false"><a href="PageSearchStatusManager.aspx">موافقة المدير
+                                <span class="label label-important" style="background-color: #c70606">
+                                    <asp:Label ID="lblAllowSearchStatusByModer" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDSearchStatusLagnat" visible="false"><a href="PageSearchStatusLagnat.aspx">موافقة رئيس اللجنة
+                                <span class="label label-important" style="background-color: #c70606">
+                                    <asp:Label ID="lblAllowSearchStatusByLagnat" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDSearchStatusDetails" visible="false"><a href="PageSearchStatusDetails.aspx">إستمارة بحث حالة</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-Allow">
+                        <a class="parent" id="pnlAcceptanceDecision" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>قرارات القبول</span>
+                            <span class="label label-important" style="background-color: #c70606">
+                                <asp:Label ID="lblNoticeAcceptanceDecisionAllow" runat="server" Text="0"></asp:Label>
+                                <i class="fa fa-bell" style="font-size: 11px"></i></span>
+                        </a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDAcceptanceDecisionAdd" visible="false"><a href="PageAcceptanceDecisionAdd.aspx">إضافة قرار قبول</a></li>
+                            <li runat="server" id="IDAcceptanceDecisionAllow" visible="false"><a href="PageAcceptanceDecisionAllow.aspx">الموافقة على القرارات 
+                                <span class="label label-important" style="background-color: #c70606">
+                                    <asp:Label ID="lblAcceptanceDecisionAllow" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDAcceptanceDecisionView" visible="false"><a href="PageAcceptanceDecision.aspx">قرارات القبول</a></li>
+                            <li runat="server" id="IDAcceptanceDecisionDetailsView" visible="false"><a href="PageAcceptanceDecisionDetails.aspx">إستمارة قرار قبول</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-Block">
+                        <a class="parent" id="pnlTecisionToExclude" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>قرارات الإستبعاد</span>
+                            <span class="label label-important" style="background-color: #c70606">
+                                <asp:Label ID="lblNoticeTecisionToExcludeAllow" runat="server" Text="0"></asp:Label>
+                                <i class="fa fa-bell" style="font-size: 11px"></i></span>
+                        </a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDTecisionToExcludeAdd" visible="false"><a href="PageTecisionToExcludeAdd.aspx">إضافة قرار إستبعاد</a></li>
+                            <li runat="server" id="IDTecisionToExcludeAllow" visible="false"><a href="PageTecisionToExcludeAllow.aspx">الموافقة على القرارات 
+                                <span class="label label-important left" style="background-color: #c70606">
+                                    <asp:Label ID="lblTecisionToExcludeAllow" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDTecisionToExcludeView" visible="false"><a href="PageTecisionToExclude.aspx">قرارات الإستبعاد</a></li>
+                            <li runat="server" id="IDTecisionToExcludeDetailsView" visible="false"><a href="PageTecisionToExcludeDetails.aspx">إستمارة قرار إستبعاد</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-extension">
+                        <a class="parent" id="pnlAfieldVisi" runat="server" visible="false"><i class="fa fa-puzzle-piece fw"></i><span>الزيارات الميدانية</span>
+                            <span class="label label-important" style="background-color: #c70606" runat="server" id="IDNoticeAfieldVisit" visible="false">
+                                <asp:Label ID="lblNoticeAfieldVisit" runat="server" Text="0"></asp:Label>
+                                <i class="fa fa-bell" style="font-size: 11px"></i></span>
+                        </a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDAfieldVisitAdd" visible="false"><a href="PageAfieldVisitAdd.aspx">إضافة زيارة ميدانية</a></li>
+                            <li runat="server" id="IDAfieldVisitPendingApprovalAdd" visible="false"><a href="PageAfieldVisitPendingApproval.aspx">موافقة المدير
+                                <span class="label label-important left" style="background-color: #c70606">
+                                    <asp:Label ID="lblAfieldVisit" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDAfieldVisitPendingApprovalByRaeesAdd" visible="false"><a href="PageAfieldVisitPendingApprovalByRaees.aspx">موافقة رئيس المجلس</a></li>
+                            <li runat="server" id="IDAfieldVisitApprovalView" visible="false"><a href="PageAfieldVisitApproval.aspx">زيارات تم الموافقه عليها</a></li>
+                            <li runat="server" id="IDAfieldVisitNotApprovedView" visible="false"><a href="PageAfieldVisitNotApproved.aspx">زيارات لم يوافق عليها</a></li>
+                            <li runat="server" id="IDAfieldVisitDetailsView" visible="false"><a href="PageAfieldVisitDetails.aspx">عرض كشف الزيارة</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-marketing">
+                        <a class="parent" id="pnlVisitReport" runat="server" visible="false"><i class="fa fa-edit fw"></i><span>تقارير الزيارات</span>
+                            <span class="label label-important" style="background-color: #c70606" runat="server" id="IDNoticeVisitReport">
+                                <asp:Label ID="lblNoticeVisitReport" runat="server" Text="0"></asp:Label>
+                                <i class="fa fa-bell" style="font-size: 11px"></i></span>
+                        </a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDVisitReportAdd" visible="false"><a href="PageVisitReportAdd.aspx">إضافة تقرير جديد</a></li>
+                            <li runat="server" id="IDVisitReportByModerAdd" visible="false"><a href="PageVisitReportByModer.aspx">موافقة المدير
+                                <span class="label label-important left" style="background-color: #c70606">
+                                    <asp:Label ID="lblVisitReportByModer" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDVisitReportByRaeesAllagnahAdd" visible="false"><a href="PageVisitReportByRaeesAllagnah.aspx">موافقة رئيس اللجنة
+                                <span class="label label-important left" style="background-color: #c70606">
+                                    <asp:Label ID="lblVisitReportByRaeesAllagnah" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDVisitReportView" visible="false"><a href="PageVisitReport.aspx">عرض تقارير الزيارات</a></li>
+                            <li runat="server" id="IDVisitReportByDevice" visible="false"><a href="PageVisitReportByDevice.aspx">تقرير الاجهزة الكهربائية</a></li>
+                            <li runat="server" id="IDVisitReportByHouse" visible="false"><a href="PageVisitReportByHouse.aspx">تقرير المنازل</a></li>
+                            <li runat="server" id="IDVisitReportDetailsView" visible="false"><a href="PageVisitReportDetails.aspx">تقرير نتيجة زيارة ميدانية</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-Re-beneficiary">
+                        <a class="parent" id="pnlRe_beneficiary" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>إعادة مستفيد</span>
+                            <span class="label label-important" style="background-color: #c70606" runat="server" id="IDNoticeRe_beneficiary">
+                                <asp:Label ID="lblNoticeRe_beneficiary" runat="server" Text="0"></asp:Label>
+                                <i class="fa fa-bell" style="font-size: 11px"></i></span>
+                        </a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDRe_beneficiaryAdd" visible="false"><a href="PageRe_beneficiaryAdd.aspx">إضافة طلب إعادة</a></li>
+                            <li runat="server" id="IDRe_beneficiaryByModerAdd" visible="false"><a href="PageRe_beneficiaryByModer.aspx">موافقة المدير
+                                <span class="label label-important left" style="background-color: #c70606">
+                                    <asp:Label ID="lblRe_beneficiaryByModer" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDRe_beneficiaryByRaeesAdd" visible="false"><a href="PageRe_beneficiaryByRaees.aspx">موافقة رئيس المجلس
+                                <span class="label label-important left" style="background-color: #c70606">
+                                    <asp:Label ID="lblRe_beneficiaryByRaees" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDRe_beneficiaryView" visible="false"><a href="PageRe_beneficiary.aspx">طلبات الإعادة</a></li>
+                            <li runat="server" id="IDRe_beneficiaryDetailsView" visible="false"><a href="PageRe_beneficiaryDetails.aspx">إستمارة طلب إعادة</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-ExclusionOfTheBeneficiary">
+                        <a class="parent" id="pnlExclusionOfTheBeneficiary" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>إستبعاد مستفيد</span>
+                            <span class="label label-important" style="background-color: #c70606" runat="server" id="IDNoticeExclusionOfTheBeneficiary">
+                                <asp:Label ID="lblNoticeExclusionOfTheBeneficiary" runat="server" Text="0"></asp:Label>
+                                <i class="fa fa-bell" style="font-size: 11px"></i></span>
+                        </a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDExclusionOfTheBeneficiaryAdd" visible="false"><a href="PageExclusionOfTheBeneficiaryAdd.aspx">إضافة طلب إستبعاد</a></li>
+                            <li runat="server" id="IDExclusionOfTheBeneficiaryByModerViewAdd" visible="false"><a href="PageExclusionOfTheBeneficiaryByModer.aspx">موافقة المدير
+                                <span class="label label-important left" style="background-color: #c70606">
+                                    <asp:Label ID="lblExclusionOfTheBeneficiaryByModer" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDExclusionOfTheBeneficiaryByRaeesAdd" visible="false"><a href="PageExclusionOfTheBeneficiaryByRaees.aspx">موافقة رئيس المجلس
+                                <span class="label label-important left" style="background-color: #c70606">
+                                    <asp:Label ID="lblExclusionOfTheBeneficiaryByRaees" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDExclusionOfTheBeneficiaryView" visible="false"><a href="PageExclusionOfTheBeneficiary.aspx">طلبات الإستبعاد</a></li>
+                            <li runat="server" id="IDExclusionOfTheBeneficiaryDetailsView" visible="false"><a href="PageExclusionOfTheBeneficiaryDetails.aspx">إستمارة طلب إستبعاد</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-Block-Timer">
+                        <a class="parent" id="pnlTecisionToExclude_Timer" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>الإستبعاد المؤقت</span>
+                            <span class="label label-important" style="background-color: #c70606">
+                                <asp:Label ID="Label1" runat="server" Text="0"></asp:Label>
+                                <i class="fa fa-bell" style="font-size: 11px"></i></span>
+                        </a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDTemporaryExclusionOfTheBeneficiaryAdd"><a href="PageTemporaryExclusionOfTheBeneficiaryAdd.aspx">إضافة إستبعاد مؤقت</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-ConvertedCases">
+                        <a class="parent" id="pnlConvertedCases" runat="server" visible="false"><i class="fa fa-files-o fw"></i><span>طلبات تحويل الحالات</span>
+                            <span class="label label-important" style="background-color: #c70606" runat="server" id="IDNoticeConvertedCases" visible="false">
+                                <asp:Label ID="lblNoticeConvertedCases" runat="server" Text="0"></asp:Label>
+                                <i class="fa fa-bell" style="font-size: 11px"></i></span>
+                        </a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDConvertedCasesAdd" visible="false"><a href="PageConvertedCasesAdd.aspx">إضافة طلب تحول</a></li>
+                            <li runat="server" id="IDConvertedCasesByModerAdd" visible="false"><a href="PageConvertedCasesByModer.aspx">موافقة المدير
+                                <span class="label label-important left" style="background-color: #c70606">
+                                    <asp:Label ID="lblConvertedCasesByModer" runat="server" Text="0"></asp:Label></span>
+                            </a></li>
+                            <li runat="server" id="IDConvertedCasesView" visible="false"><a href="PageConvertedCases.aspx">طلبات التحويل</a></li>
+                            <li runat="server" id="IDConvertedCasesDetailsView" visible="false"><a href="PageConvertedCasesDetails.aspx">إستمارة طلب تحويل</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-Shop">
+                        <a class="parent" id="pnlManageProductWarehouse" runat="server" visible="false"><i class="fa fa-shopping-cart fw"></i><span>المستودع</span></a>
+                        <ul style="font-size: 12px">
+                            <li><a href="PageManageProductWarehousebyProductsCloseToCompletion.aspx">منتجات قاربت على الإنتهاء</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Back"><a href="../PageElectronicGate.aspx"><i class="fa fa-share fw"></i><span>رجوع للبوابة الإلكتروني</span></a></li>
+                    <li id="menu-Out"><a href="LogOut.aspx"><i class="fa fa-sign-out fw"></i><span>خروج</span></a></li>
+                </ul>
+                <%--<div id="stats">
+                    <ul>
+                        <li>
+                            <div>
+                                جميع المستفيدين %<% Response.Write(GetPercintAllMostafeed()); %>
+                                <span class="pull-right">
+                                    <asp:Label ID="lblCountAllMostafeed" runat="server" Text="0"></asp:Label></span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <% Response.Write(GetPercintAllMostafeed()); %>%;"><span class="sr-only"></span></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                الدائمين %<% Response.Write(GetPercintByDaaem()); %>
+                                <span class="pull-right">
+                                    <asp:Label ID="lblCountByDaaem" runat="server" Text="0"></asp:Label></span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <% Response.Write(GetPercintByDaaem()); %>%;"><span class="sr-only"></span></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                المستبعدين %<% Response.Write(GetPercintByMostabaad()); %>
+                                <span class="pull-right">
+                                    <asp:Label ID="lblCountByMostabaad" runat="server" Text="0"></asp:Label></span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <% Response.Write(GetPercintByMostabaad()); %>%;"><span class="sr-only"></span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>--%>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <div class="loading2" align="center" id="lodi">
+                <div>
+                    <img src="../../Img/Logo.png" width="200" style="background-color: #349301; padding: 5px; border-radius: 4px" />
+                    <br />
+                    <span style="background-color: #349301; padding: 5px; border-radius: 4px">يرجى الإنتظار , جاري تنفيذ المهام</span><br />
+                    <br />
+                    <img src="../loader.gif" alt="" />
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <footer id="footer">
+                جميع الحقوق محفوظة
+            <a runat="server" id="IDSite" target="_blank">
+                <asp:Label ID="lblSite" runat="server" Text="جمعية البر والخدمات الاجتماعية بأرن"></asp:Label>
+            </a>&copy;
+                <asp:Label ID="lblYears" runat="server"></asp:Label>
+            </footer>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </form>
+</body>
+</html>

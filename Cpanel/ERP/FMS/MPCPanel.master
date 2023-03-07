@@ -1,0 +1,253 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPCPanel.master.cs" Inherits="Cpanel_ERP_FMS_MPCPanel" %>
+
+<%@ Register Src="~/Cpanel/CAttach/WUCLoding.ascx" TagPrefix="uc1" TagName="WUCLoding" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>لوحة التحكم</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="/ImgSystem/ImgSetting/StartLogo.png" type="image/vnd.microsoft.icon" />
+
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/jquery-2.1.1.min.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/bootstrap/js/bootstrap.min.js")%>"></script>
+    <link href="/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/view/javascript/summernote/summernote.css")%>" rel="stylesheet" />
+    
+    <script src="<%=ResolveUrl("~/view/javascript/summernote/summernote.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/summernote/lang/summernote-ar-AR.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/moment.js")%>"></script>
+    <script src="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js")%>"></script>
+
+    <link href="<%=ResolveUrl("~/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css")%>" rel="stylesheet" />
+    <link href="<%=ResolveUrl("~/view/stylesheet/bootstrap-a.css")%>" rel="stylesheet" media="screen" />
+    <link href="<%=ResolveUrl("~/view/stylesheet/stylesheet-a.css?v=2.2")%>" rel="stylesheet" media="screen" />
+
+    <script src="<%=ResolveUrl("~/view/javascript/common.js")%>"></script>
+
+    <link href="<%=ResolveUrl("~/fonts/font-awesome.css")%>" rel="stylesheet" type="text/css" />
+    <link href="~/Cpanel/GridView.css?v=2.2" rel="stylesheet" type="text/css" />
+    <link href="/Themes/Ar_Qader/Content/ColorArn.css" rel="stylesheet" />
+    <style type="text/css">
+        body, h1, h2, h3, h4, h5, h6, p, ul, a, input, title {
+            font-family: 'Droid Arabic Kufi', serif;
+        }
+
+        @media screen and (min-width: 768px) {
+            .FoDesktop {
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .FoDesktop {
+                display: none;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        function ShowCreatedBy() {
+            $("#IDCreatedBy").modal('show');
+        }
+
+        $(function () {
+            $("#btnShow").click(function () {
+                ShowCreatedBy();
+            });
+        });
+    </script> 
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="container">
+            <header id="header" class="navbar navbar-static-top ColorHome">
+                <div class="navbar-header">
+                    <a type="button" id="button-menu" class="pull-left"><i class="fa fa-indent fa-lg"></i></a>
+                    <a href="<%=ResolveUrl("~/Cpanel/ERP/FMS/") %>" class="navbar-brand FoDesktop">نظام المالية
+                        <%--<img src="../view/image/logo.png" id="ImgHome" runat="server" alt="لوحة التحكم" title="لوحة التحكم" width="123" height="23" />--%>
+                    </a>
+                </div>
+                <ul class="nav pull-right">
+                    <li><a href="##" class="FoDesktop" onclick="history.go(-1); return false;"><span class="hidden-xs hidden-sm hidden-md">رجوع</span> <i class="fa fa-share fa-lg"></i></a></li>
+                    <li runat="server" id="IDHRM" visible="false" class="BackgroundAll">
+                        <a href="/Cpanel/ERP/HRAndPayRoll/Admin/">
+                            <span class="label label-danger pull-left">
+                                <asp:Label ID="lblNotifications" runat="server" Text="0"></asp:Label></span>
+                            <span class="hidden-xs hidden-sm hidden-md" style="color:#F0F0F0;">نظام الموظف <i class="fa fa-connectdevelop fa-lg"></i></span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="hidden-xs hidden-sm hidden-md">حسابي</span> <i class="fa fa-user fa-lg"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-header"><i class="fa fa-file fa-lg"></i>بياناتي </li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/CHome/PageMyAccount.aspx")%>">تعديل بياناتي</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header"><i class="fa fa-lock fa-lg"></i>كلمة المرور </li>
+                            <li><a href="<%=ResolveUrl("~/Cpanel/CHome/PageMyPassword.aspx")%>">تعديل كلمة المرور</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="<%=ResolveUrl("~/Cpanel/ERP/LogOut.aspx")%>"><span class="hidden-xs hidden-sm hidden-md">خروج</span> <i class="fa fa-sign-out fa-lg"></i></a></li>
+                </ul>
+            </header>
+            <nav id="column-left">
+                <div id="profile">
+                    <div>
+                        <a href="<%=ResolveUrl("~/Cpanel/ERP/FMS/") %>" title="الرئيسية">
+                            <img src="<%=ResolveUrl("~/Img/Logo.png")%>" width="65" /></a>
+                        <%--<i class="fa fa-opencart"></i>--%>
+                    </div>
+                    <div>
+                        <h4><asp:Label ID="lblFirstName" runat="server" Font-Size="12px"></asp:Label></h4>
+                        <small>
+                            <asp:Label ID="lblLestName" runat="server" Text="مرحباً بك"></asp:Label>
+                        </small>
+                    </div>
+                </div>
+                <ul id="menu">
+                    <li id="menu-dashboard">
+                        <a href="<%=ResolveUrl("~/Cpanel/ERP/FMS/")%>"><i class="fa fa-home fw"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li id="menu-Setting">
+                        <a class="parent" id="pnlSetting" runat="server" visible="true"><i class="fa fa-hospital-o fw"></i><span>الحسابات البنكية</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDBank" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/PageBank.aspx")%>'>إدارة البنوك</a></li>
+                            <li runat="server" id="IDAccount" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/PageAccount.aspx")%>'>إدارة حسابات البنوك</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li id="menu-In_kind_Donation">
+                        <a class="parent" id="pnlIn_kind_Donation" runat="server" visible="true"><i class="fa fa-list fw"></i><span>التبرع العيني</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDIn_Kind_DonationAdd" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/In_Kind_Donation/PageAdd.aspx")%>'>إضافة سند تبرع عيني</a></li>
+                            <li runat="server" id="IDIn_Kind_DonationApprovalOfTheDirectorAdd" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/In_Kind_Donation/PageApprovalOfTheDirector.aspx")%>'>موافقة مدير الجمعية</a></li>
+                            <li runat="server" id="IDIn_Kind_DonationCashierAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/In_Kind_Donation/PageCashier.aspx")%>'>موافقة المشرف المالي</a></li>
+                            <li runat="server" id="IDIn_Kind_DonationChairmanOfTheBoardAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/In_Kind_Donation/PageChairmanOfTheBoard.aspx")%>'>موافقة رئيس المجلس</a></li>
+                            <li runat="server" id="IDIn_Kind_DonationStorekeeperAdd" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/In_Kind_Donation/PageStorekeeper.aspx")%>'>مصادقة أمين المستودع</a></li>
+                            <li runat="server" id="IDIn_Kind_Donation" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/In_Kind_Donation/PageIn_Kind_Donation.aspx")%>'>سندات التبرع العيني</a></li>
+                            <li runat="server" id="IDIn_Kind_DonationView" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/In_Kind_Donation/PageView.aspx")%>'>تفاصيل الفاتورة</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Receip">
+                        <a class="parent" id="pnlIn_Receip" runat="server" visible="true"><i class="fa fa-money fw"></i><span>سندات القبض</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDOrganstionsReceipt" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Receipt/PageOrganstions.aspx")%>'>الجهات والأشخاص</a></li>
+                            <li runat="server" id="IDMainItemsReceipt" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Receipt/PageMainItems.aspx")%>'>البنود الرئيسية</a></li>
+                            <li runat="server" id="IDSubItemsReceipt" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Receipt/PageSubItems.aspx")%>'>البنود الفرعية</a></li>
+                            <li runat="server" id="IDReceiptAddReceipt" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Receipt/PageAdd.aspx")%>'>إضافة سند قبض</a></li>
+                            <li runat="server" id="IDDirectorReceipt" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Receipt/PageApprovalOfTheDirector.aspx")%>'>موافقة مدير الجمعية</a></li>
+                            <li runat="server" id="IDCashierReceipt" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Receipt/PageCashier.aspx")%>'>موافقة المشرف المالي</a></li>
+                            <li runat="server" id="IDChairmanOfTheBoardReceipt" visible="false"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Receipt/PageChairmanOfTheBoard.aspx")%>'>موافقة رئيس المجلس</a></li>
+                            <li runat="server" id="IDReceiptAllReceipt" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Receipt/PageAll.aspx")%>'>سندات القبض</a></li>
+                            <li runat="server" id="IDReceiptViewReceipt" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Receipt/PageView.aspx")%>'>تفاصيل السند</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Cash_Donation">
+                        <a class="parent" id="pnlICash_Donation" runat="server" visible="true"><i class="fa fa-money fw"></i><span>إيصالات التبرع النقدي</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDCash_DonationAdd" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cash_Donation/PageAdd.aspx")%>'>إضافة إيصال تبرع نقدي</a></li>
+                            <li runat="server" id="IDCash_DonationCashierAdd" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cash_Donation/PageCashier.aspx")%>'>موافقة المشرف المالي</a></li>
+                            <li runat="server" id="IDCash_DonationChairmanOfTheBoardAdd" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cash_Donation/PageChairmanOfTheBoard.aspx")%>'>موافقة رئيس المجلس</a></li>
+                            <li runat="server" id="IDCash_Donation" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cash_Donation/PageCash_Donation.aspx")%>'>إيصالات التبرع النقدي</a></li>
+                            <li runat="server" id="IDCash_DonationView" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cash_Donation/PageView.aspx")%>'>تفاصيل الفاتورة</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Cashing">
+                        <a class="parent" id="pnlIn_Cashing" runat="server" visible="true"><i class="fa fa-money fw"></i><span>سندات الصرف</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDOrganstionsCashing" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cashing/PageOrganstions.aspx")%>'>الجهات والأشخاص</a></li>
+                            <li runat="server" id="IDMainItemsCashing" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cashing/PageMainItems.aspx")%>'>البنود الرئيسية</a></li>
+                            <li runat="server" id="IDSubItemsCashing" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cashing/PageSubItems.aspx")%>'>البنود الفرعية</a></li>
+                            <li runat="server" id="IDReceiptAddCashing" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cashing/PageAdd.aspx")%>'>إضافة سند صرف</a></li>
+                            <li runat="server" id="IDCashierCashing" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cashing/PageCashier.aspx")%>'>موافقة المشرف المالي</a></li>
+                            <li runat="server" id="IDChairmanOfTheBoardCashing" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cashing/PageChairmanOfTheBoard.aspx")%>'>موافقة رئيس المجلس</a></li>
+                            <li runat="server" id="IDReceiptAllCashing" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cashing/PageAll.aspx")%>'>سندات الصرف</a></li>
+                            <li runat="server" id="IDReceiptViewCashing" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Cashing/PageView.aspx")%>'>تفاصيل السند</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-GA">
+                        <a class="parent" id="pnlGA" runat="server" visible="true"><i class="fa fa-money fw"></i><span>ايصالات الإشتراكات</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDGAAdd" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/GA/PageAdd.aspx")%>'>إضافة ايصال</a></li>
+                            <li runat="server" id="IDGAAmeen" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/GA/PageAmeen.aspx")%>'>موافقة المشرف المالي</a></li>
+                            <li runat="server" id="IDGARaees" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/GA/PageRaees.aspx")%>'>موافقة رئيس المجلس</a></li>
+                            <li runat="server" id="IDGAAll" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/GA/PageAll.aspx")%>'>قائة الايصالات</a></li>
+                            <li runat="server" id="IDGAView" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/GA/PageView.aspx")%>'>تفاصيل الايصال</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Operating_Expenses">
+                        <a class="parent" id="pnlOperating_Expenses" runat="server" visible="true"><i class="fa fa-money fw"></i><span>المصاريف التشغيلية</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDOperating_ExpensesAdd" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/OE/PageAdd.aspx")%>'>إضافة مصاريف تشغيلية</a></li>
+                            <li runat="server" id="IDOperating_ExpensesView" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/OE/PageAll.aspx")%>'>بيانات المصاريف التشغيلية</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Analy">
+                        <a class="parent" id="pnlSupported" runat="server" visible="true"><i class="fa fa-hospital-o fw"></i><span>تحليل المشاريع</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDSupported" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Supported/PageSupported.aspx")%>'>المشاريع المدعومة</a></li>
+                            <li runat="server" id="IDUnSupported" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Supported/PageUnSupported.aspx")%>'>المشاريع الغير مدعومة</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-Statistic">
+                        <a class="parent" id="pnlStatistics" runat="server" visible="true"><i class="fa fa-money fw"></i><span>الاحصاء المالي</span></a>
+                        <ul style="font-size: 12px">
+                            <li runat="server" id="IDStatisticsByCategory" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Statistics/PageStatisticsByCategory.aspx")%>'>الدعم العيني - احصاء الوارد</a></li>
+                            <li runat="server" id="IDStatisticsByMony" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Statistics/PageStatisticsGeneralMony.aspx")%>'>الإحصاء المالي النقدي العام</a></li>
+                            <li runat="server" id="IDStatisticsByReceipt" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Statistics/PageStatisticsReceipt.aspx")%>'>الإحصاء المالي لسندات القبض</a></li>
+                            <li runat="server" id="IDStatisticsByCashing" visible="true"><a href='<%=ResolveUrl("~/Cpanel/ERP/FMS/Statistics/PageStatisticsCashing.aspx")%>'>الإحصاء المالي لسندات الصرف</a></li>
+                        </ul>
+                    </li>
+
+                    <li id="menu-ITSupport"><a href="<%=ResolveUrl("~/ITSupport/")%>" target="_blank"><i class="fa fa-desktop fw"></i><span>الدعم الفني</span></a></li>
+                    <li id="menu-Back"><a href="<%=ResolveUrl("~/Cpanel/CHome/")%>"><i class="fa fa-share fw"></i><span>رجوع للبوابة الإلكتروني</span></a></li>
+                    <li id="menu-Out"><a href="<%=ResolveUrl("~/Cpanel/ERP/LogOut.aspx")%>"><i class="fa fa-sign-out fw"></i><span>خروج</span></a></li>
+                </ul>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+            <uc1:WUCLoding runat="server" ID="WUCLoding" />
+            
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <footer id="footer">
+                جميع الحقوق محفوظة
+            <a runat="server" id="IDSite" target="_blank">
+                <asp:Label ID="lblSite" runat="server" Text="جمعية البر والخدمات الإجتماعية بأرن"></asp:Label>
+            </a>&copy; <asp:Label ID="lblYears" runat="server"></asp:Label>
+            </footer>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </form>
+    <style type="text/css">
+        .modal-open {
+            overflow: hidden
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+            outline: 0;
+            background-color: hsla(120, 3%, 82%, 0.30);
+        }
+    </style>
+</body>
+</html>

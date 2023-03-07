@@ -1,0 +1,174 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MPCPanel.master.cs" Inherits="Cpanel_CPGeneralAssembly_MPCPanel" %>
+
+<%@ Register Src="~/Cpanel/CAttach/WUCLoding.ascx" TagPrefix="uc1" TagName="WUCLoding" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>لوحة التحكم</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="/ImgSystem/ImgSetting/StartLogo.png" type="image/vnd.microsoft.icon" />
+    <script type="text/javascript" src="/view/javascript/jquery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/view/javascript/bootstrap/js/bootstrap.min.js"></script>
+    <link href="/view/javascript/font-awesome/css/font-awesome.min.css" type="text/css"
+        rel="stylesheet" />
+    <link href="/view/javascript/summernote/summernote.css" rel="stylesheet" />
+    <script type="text/javascript" src="/view/javascript/summernote/summernote.js"></script>
+    <script src="/view/javascript/summernote/lang/summernote-ar-AR.js"></script>
+    <script src="/view/javascript/jquery/datetimepicker/moment.js" type="text/javascript"></script>
+    <script src="/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.js"
+        type="text/javascript"></script>
+    <link href="/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css"
+        type="text/css" rel="stylesheet" media="screen" />
+    <link href="/view/stylesheet/bootstrap-a.css" rel="stylesheet" media="screen" />
+    <link href="<%=ResolveUrl("~/view/stylesheet/stylesheet-a.css?v=2.2")%>" rel="stylesheet" media="screen" />
+    <script src="/view/javascript/common.js" type="text/javascript"></script>
+    <link href="/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/fonts/font-awesome.css" rel="stylesheet" />
+    <link href="/Themes/Ar_Qader/Content/ColorArn.css" rel="stylesheet" />
+    <style type="text/css">
+        body, h1, h2, h3, h4, h5, h6, p, ul, a, input {
+            font-family: 'Droid Arabic Kufi', serif;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="container">
+            <header id="header" class="navbar navbar-static-top ColorHome">
+                <div class="navbar-header">
+                    <a type="button" id="button-menu" class="pull-left"><i class="fa fa-indent fa-lg"></i></a>
+                    <a href="Default.aspx" class="navbar-brand">
+                        <%--<img src="/view/image/logo.png" id="ImgHome" runat="server" alt="لوحة التحكم" title="لوحة التحكم" width="123" height="23" />--%>
+                        البوابة الإلكترونية
+                    </a>
+                </div>
+                <ul class="nav pull-right">
+                    <li><a href="##" class="FoDesktop" onclick="history.go(-1); return false;"><span class="hidden-xs hidden-sm hidden-md">رجوع</span> <i class="fa fa-share fa-lg"></i></a></li>
+                    <li runat="server" id="IDHRM" visible="false" class="BackgroundAll">
+                        <a href="/Cpanel/ERP/HRAndPayRoll/Admin/">
+                            <span class="label label-danger pull-left">
+                                <asp:Label ID="lblNotifications" runat="server" Text="0"></asp:Label></span>
+                            <span class="hidden-xs hidden-sm hidden-md" style="color:#F0F0F0;">نظام الموظف <i class="fa fa-connectdevelop fa-lg"></i></span></a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown"><span class="hidden-xs hidden-sm hidden-md">حسابي</span> <i class="fa fa-user fa-lg"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-header"><i class="fa fa-file fa-lg"></i> بياناتي </li>
+                            <li><a href="../CHome/PageMyAccount.aspx">تعديل بياناتي</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header"><i class="fa fa-lock fa-lg"></i> كلمة المرور </li>
+                            <li><a href="../CHome/PageMyPassword.aspx">تعديل كلمة المرور</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="LogOut.aspx"><span class="hidden-xs hidden-sm hidden-md">خروج</span> <i class="fa fa-sign-out fa-lg"></i></a></li>
+                </ul>
+            </header>
+            <nav id="column-left">
+                <div id="profile">
+                    <div>
+                        <a href="Default.aspx" title="الرئيسية">
+                            <img src="/Img/Logo.png" width="65" /></a>
+                        <%--<i class="fa fa-opencart"></i>--%>
+                    </div>
+                    <div>
+                        <h4><asp:Label ID="lblFirstName" runat="server" Font-Size="12px"></asp:Label></h4>
+                        <small>
+                            <asp:Label ID="lblLestName" runat="server" Text="مرحباً بك"></asp:Label>
+                        </small>
+                    </div>
+                </div>
+                <ul id="menu">
+                    <li id="menu-dashboard">
+                        <a href="Default.aspx"><i class="fa fa-home fw"></i><span>الرئيسية</span></a>
+                    </li>
+                    <li id="menu-Admin">
+                        <a class="parent" id="PnlAdmin" runat="server" visible="false"><i class="fa fa-list fw"></i><span>بيانات الأعضاء</span></a>
+                        <ul style="font-size:12px">
+                            <li runat="server" id="IDAdminAdd" visible="false"><a href="PageAdminAdd.aspx">إضافة عضو جديد</a></li>
+                            <li runat="server" id="IDAdmin" visible="false"><a href="PageAdmin.aspx">أعضاء الجمعية العمومية</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-General-Assembly">
+                        <a class="parent" id="PnlGeneralAssembly" runat="server" visible="false"><i class="fa fa-list fw"></i><span>إستمارات الأعضاء</span></a>
+                        <ul style="font-size:12px">
+                            <li runat="server" id="IDGeneralAssemblyAdd" visible="false"><a href="PageGeneralAssemblyAdd.aspx">إضافة إستمارة جديدة</a></li>
+                            <li runat="server" id="IDGeneralAssembly" visible="false"><a href="PageGeneralAssembly.aspx">إستمارات الجمعية العمومية</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-GeneralAssemblyAllow">
+                        <a class="parent" id="PnlGeneralAssemblyAllow" runat="server" visible="false"><i class="fa fa-check-square fw"></i><span>موافقة على الإستمارة</span></a>
+                        <ul style="font-size:12px">
+                            <li runat="server" id="IDGeneralAssemblyAllow"><a href="PageGeneralAssemblyAllow.aspx">موافقة رئيس المجلس</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-GeneralAssemblyView"><a href="PageGeneralAssemblyView.aspx" runat="server" id="IDGeneralAssemblyView" visible="false"><i class="fa fa-file fw"></i><span>تفاصيل الإستمارة</span></a></li>
+                    <li id="menu-General-Assembly-Bill">
+                        <a class="parent" id="PnlGeneralAssemblyBill" runat="server" visible="false"><i class="fa fa-list fw"></i><span>ايصالات الإشتراكات</span></a>
+                        <ul style="font-size:12px">
+                            <li runat="server" id="IDGeneralAssemblyBillAdd" visible="false"><a href="PageAdd.aspx">إضافة ايصال جديد</a></li>
+                            <li runat="server" id="IDGeneralAssemblyBill" visible="false"><a href="PageAll.aspx">قائة الايصالات</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-customer-Shop">
+                        <a class="parent" id="PnlGeneralAssemblyBillAllow" runat="server" visible="false"><i class="fa fa-check-square fw"></i><span>موافقة على الايصالات</span></a>
+                        <ul style="font-size:12px">
+                            <li runat="server" id="IDGeneralAssemblyBillAmeen" visible="false"><a href="PageAmeen.aspx">موافقة المشرف المالي</a></li>
+                            <li runat="server" id="IDGeneralAssemblyBillRaees" visible="false"><a href="PageRaees.aspx">موافقة رئيس المجلس</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-CPanelManageSite"><a href="PageView.aspx" runat="server" id="IDGeneralAssemblyBillView" visible="false"><i class="fa fa-file fw"></i><span>تفاصيل الايصال</span></a></li>
+                    <li id="menu-Back"><a href="../CHome/"><i class="fa fa-share fw"></i><span>رجوع للبوابة الإلكتروني</span></a></li>
+                    <li id="menu-Out"><a href="LogOut.aspx"><i class="fa fa-sign-out fw"></i><span>خروج</span></a></li>
+                </ul>
+            </nav>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+            <uc1:WUCLoding runat="server" ID="WUCLoding" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <footer id="footer">
+                جميع الحقوق محفوظة
+            <a runat="server" id="IDSite" target="_blank">
+                <asp:Label ID="lblSite" runat="server" Text="جمعية البر والخدمات الإجتماعية بأرن"></asp:Label>
+            </a>&copy; <asp:Label ID="lblYears" runat="server"></asp:Label>
+            </footer>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </form>
+    <style type="text/css">
+        .modal-open {
+            overflow: hidden
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1050;
+            display: none;
+            overflow: hidden;
+            -webkit-overflow-scrolling: touch;
+            outline: 0;
+            background-color: hsla(120, 3%, 82%, 0.30);
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="WUCFooterInstitute.ascx.cs" Inherits="WUCFooterInstitute" %>
+<div><img src='<%=ResolveUrl("~/view/image/Footer_Institute_Man.jpg?v=12346")%>' style='width:100%; height:100px;' /></div>

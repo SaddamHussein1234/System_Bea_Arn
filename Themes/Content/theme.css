@@ -1,0 +1,80 @@
+﻿@charset "utf-8";
+
+.modern-ticker {
+    color: #fafafa;
+    background-color: #fafafa;
+    direction: ltr;
+}
+
+.mt-label {
+    background-color: #09f;
+}
+
+.mt-news {
+    background-color: #dedede;
+}
+
+.mt-preloader {
+    /*background: url(images/preloader.gif) no-repeat center;*/
+}
+
+.mt-news ul {
+    /*background-image: url(images/bullet-over.png);*/
+}
+
+.mt-news a {
+    color: #525252;
+    background-color: #d0d0d0;
+    /*background-color: #000;*/
+    background-image: url('../Images/sep-ticker.png');
+}
+
+    .mt-news a:hover {
+        /*color: #4e4734;*/
+        color: #000;
+        background-color: #c8c7c7;
+        background-image: url('../Images/sep-ticker-W.png');
+        border-color: #f20;
+    }
+
+    .mt-news a:active { 
+        background-color:#82817e;
+    }
+
+.mt-controls {
+    /*background-image: url(images/pause.png);*/
+}
+
+.mt-next, .mt-prev {
+    background-color: #c8c7c7;
+    color: #4e4734;
+    font-size: 2em;
+}
+
+.mt-prev {
+    /*background-image: url(images/arrow-prev.png);*/
+}
+
+.mt-next {
+    /*background-image: url(images/arrow-next.png);*/
+}
+
+.mt-play {
+    background-color: #f5f3ed;
+    /*background-image: url(images/play.png);*/
+    color: #000;
+    display: none;
+}
+
+.mt-pause {
+    /*background-image: url(images/pause.png);*/
+}
+
+.mt-next:hover, .mt-play:hover, .mt-prev:hover {
+    background-color: #4e4734;
+    color: #c8c7c7;
+}
+
+.mt-next:active, .mt-play:active, .mt-prev:active {
+    background-color: #388709;
+}
